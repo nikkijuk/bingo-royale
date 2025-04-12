@@ -15,19 +15,12 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$Game implements DiagnosticableTreeMixin {
-  @JsonKey(name: 'started')
   String? get started;
-  @JsonKey(name: 'finished')
   String? get finished;
-  @JsonKey(name: 'width')
   int? get width;
-  @JsonKey(name: 'height')
   int? get height;
-  @JsonKey(name: 'found')
   int? get found;
-  @JsonKey(name: 'selected')
   List<int>? get selected;
-  @JsonKey(name: 'elements')
   List<String>? get elements;
 
   /// Create a copy of Game
@@ -92,13 +85,13 @@ abstract mixin class $GameCopyWith<$Res> {
       _$GameCopyWithImpl;
   @useResult
   $Res call(
-      {@JsonKey(name: 'started') String? started,
-      @JsonKey(name: 'finished') String? finished,
-      @JsonKey(name: 'width') int? width,
-      @JsonKey(name: 'height') int? height,
-      @JsonKey(name: 'found') int? found,
-      @JsonKey(name: 'selected') List<int>? selected,
-      @JsonKey(name: 'elements') List<String>? elements});
+      {String? started,
+      String? finished,
+      int? width,
+      int? height,
+      int? found,
+      List<int>? selected,
+      List<String>? elements});
 }
 
 /// @nodoc
@@ -158,35 +151,29 @@ class _$GameCopyWithImpl<$Res> implements $GameCopyWith<$Res> {
 @JsonSerializable()
 class _Game with DiagnosticableTreeMixin implements Game {
   const _Game(
-      {@JsonKey(name: 'started') this.started,
-      @JsonKey(name: 'finished') this.finished,
-      @JsonKey(name: 'width') this.width,
-      @JsonKey(name: 'height') this.height,
-      @JsonKey(name: 'found') this.found,
-      @JsonKey(name: 'selected') final List<int>? selected,
-      @JsonKey(name: 'elements') final List<String>? elements})
+      {this.started,
+      this.finished,
+      this.width,
+      this.height,
+      this.found,
+      final List<int>? selected,
+      final List<String>? elements})
       : _selected = selected,
         _elements = elements;
   factory _Game.fromJson(Map<String, dynamic> json) => _$GameFromJson(json);
 
   @override
-  @JsonKey(name: 'started')
   final String? started;
   @override
-  @JsonKey(name: 'finished')
   final String? finished;
   @override
-  @JsonKey(name: 'width')
   final int? width;
   @override
-  @JsonKey(name: 'height')
   final int? height;
   @override
-  @JsonKey(name: 'found')
   final int? found;
   final List<int>? _selected;
   @override
-  @JsonKey(name: 'selected')
   List<int>? get selected {
     final value = _selected;
     if (value == null) return null;
@@ -197,7 +184,6 @@ class _Game with DiagnosticableTreeMixin implements Game {
 
   final List<String>? _elements;
   @override
-  @JsonKey(name: 'elements')
   List<String>? get elements {
     final value = _elements;
     if (value == null) return null;
@@ -274,13 +260,13 @@ abstract mixin class _$GameCopyWith<$Res> implements $GameCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'started') String? started,
-      @JsonKey(name: 'finished') String? finished,
-      @JsonKey(name: 'width') int? width,
-      @JsonKey(name: 'height') int? height,
-      @JsonKey(name: 'found') int? found,
-      @JsonKey(name: 'selected') List<int>? selected,
-      @JsonKey(name: 'elements') List<String>? elements});
+      {String? started,
+      String? finished,
+      int? width,
+      int? height,
+      int? found,
+      List<int>? selected,
+      List<String>? elements});
 }
 
 /// @nodoc

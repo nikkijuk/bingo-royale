@@ -6,8 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 
 /// read json from yaml file
-class SourceYamlFile  {
-
+class SourceYamlFile {
   /// give filename of yaml file
   SourceYamlFile({required this.filename});
 

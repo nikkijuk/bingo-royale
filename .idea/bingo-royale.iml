@@ -9,6 +9,9 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/config/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/config/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/config/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/features/play_bingo/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/features/play_bingo/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/features/play_bingo/build" />
       <excludeFolder url="file://$MODULE_DIR$/packages/model/bingo_model/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/model/bingo_model/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/model/bingo_model/build" />
