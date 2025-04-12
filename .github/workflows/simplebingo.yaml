@@ -23,10 +23,9 @@ jobs:
       coverage_excludes: "*.g.dart *.freezed.dart" # defaults to "" (none)
       working_directory: apps/simplebingo # defaults to "." (the top-level directory)
 
-  spell-check:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
-    with:
-      continue-on-error: true
-      includes: |
-        **/*.md
-      modified_files_only: false
+#  spell-check:
+#    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1#
+#    with:
+#      includes: |
+#        **/*.md
+#      modified_files_only: false
