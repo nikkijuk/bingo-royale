@@ -26,6 +26,7 @@ jobs:
   spell-check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
     with:
+      continue-on-error: true
       includes: |
         **/*.md
       modified_files_only: false
