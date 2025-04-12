@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simplebingo/counter/counter.dart';
 
-import '../../l10n/arb/app_localizations.dart';
+import 'package:simplebingo/l10n/arb/app_localizations.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

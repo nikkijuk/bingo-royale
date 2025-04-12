@@ -49,7 +49,7 @@ Resulting directory structure
     └── <package_name>
 ```
 
-## Create a skeleton of new flutter package
+## Create a skeleton of new **flutter** package
 
 Create a skeleton of new flutter package using the `very_good_cli`.
 
@@ -59,7 +59,7 @@ very_good create flutter_package <package_name> --description "<package_descript
 
 This command will create a new package with the specified name and description.
 
-## Create a skeleton of new dart package
+## Create a skeleton of new **dart** package
 
 Create a skeleton of new dart package using the `very_good_cli`.
 
@@ -75,9 +75,7 @@ After creating a new package pubspec.yaml file may contain dependencies that are
 or are not up to date. Remove unnecessary dependencies and update the ones that are needed.
 
 Currently the `very_good_cli` creates a dart sdk dependency that might not match to one we are using. 
-Downgrade it to the one that matches flutter sdk used.
-
-Currently supported by Flutter SDK version is 3.16.9, so the dart sdk should be set to:
+If needed downgrade it to the one that matches flutter sdk used.
 
 ```yaml
 environment:
@@ -141,7 +139,7 @@ Intl version depends on the Flutter version you are using, so we can leave it op
 See that you have at your package root `l10n.yaml` file with following content:
 
 ```yaml
-arb-dir: lib/src/l10n
+arb-dir: lib/src/l10n/arb
 template-arb-file: messages_en.arb
 output-localization-file: <package_dir>_localizations.dart
 output-class: <PackageName>Localizations
@@ -151,7 +149,7 @@ format: true
 header: // coverage:ignore-file
 ```
 
-and make sure you have `lib/src/l10n` directory with `messages_en.arb` file:
+and make sure you have `lib/src/l10n/arb` directory with `messages_en.arb` file:
 
 ```json
 {

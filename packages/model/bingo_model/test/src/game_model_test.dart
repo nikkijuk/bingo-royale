@@ -5,9 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
 
-  setUp(() {
-    WidgetsFlutterBinding.ensureInitialized();
-  });
+  setUp(WidgetsFlutterBinding.ensureInitialized);
 
   testWidgets('read game from yaml file', (tester) async  {
 

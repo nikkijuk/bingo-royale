@@ -1,13 +1,12 @@
+// ignore_for_file: avoid_print
+
 import 'package:config/src/source_yaml_file.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:collection/collection.dart';
 
 void main() {
 
-  setUp(() {
-    WidgetsFlutterBinding.ensureInitialized();
-  });
+  setUp(WidgetsFlutterBinding.ensureInitialized);
 
   testWidgets('load users from yaml file', (tester) async  {
 
