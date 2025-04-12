@@ -143,10 +143,10 @@ Add files to git with following command:
 cd <repository_root>
 git add .
 git commit -m "initial commit"
+git push
 ```sh
 
-
-
+At generated app there is git ignore file that prevent unwanted files from being committed.
 
 ## Committing generated code
 
