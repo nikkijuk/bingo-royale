@@ -1,0 +1,19 @@
+# users.yaml template
+# see: https://www.topquadrant.com/doc/8.2/administrator_guide/authentication/users_yaml.html
+users:
+-
+  id: "1"
+  username: "pin1"
+  password: "{plain}1234"
+  roles: [ "nurse" ]
+-
+  id: "2"
+  username: "pin2"
+  password: "{plain}123456"
+  roles: [ "physician" ]
+-
+  id: "3"
+  username: "admin"
+  # topsecret
+  password: "{bcrypt}$2y$15$HHI02CXNcMF2gDG3GosJku4jmUhE9eM8GHkIB.mKSuYJMKIZ8RUf6"
+  roles: [ "support" ]

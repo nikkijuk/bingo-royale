@@ -148,16 +148,70 @@ git push
 
 At generated app there is git ignore file that prevent unwanted files from being committed.
 
-## Committing generated code
+## Adjusting configurations
 
-Some generated artifacts might not be useful.
+Some generated configuration artifacts might not be useful.
 
 Feel free to delete if not needed:
 
+- .gitignore file if you have one in monorepo root already
+- .github directory if you are not using github or have one in monorepo root already
+- analysis_options.yaml file if you have one in monorepo root already
+
+## Configuring gitlab actions
+
+There should be one gitlab workflow for each app.
+
+configuration is at `.gitbub/workglows/<app-name>.yaml` file.
+
+- build is triggered on every push or pull request at main branch
+- very good workflows is used to build and test the app
+- working directory is set to 'simplebingo'
+- generated files are not included in the build
+- code coverage target is relaxed from 100% to give more flexibility to developers
+- spell checker is disabled / commented out
+
+```yaml
+name: simplebingo
+
+concurrency:
+  group: $-$
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  semantic-pull-request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      min_coverage: 80
+      flutter_channel: stable
+      coverage_excludes: "*.g.dart *.freezed.dart" # defaults to "" (none)
+      working_directory: apps/simplebingo # defaults to "." (the top-level directory)
+
+# spell checker is commented out as typos are not highest prio now
+#
+#  spell-check:
+#    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1#
+#    with:
+#      includes: |
+#        **/*.md
+#      modified_files_only: false
+```
+
+## Removing generated code
+
 - counter directory is example implementation of a counter app
-- .gitignore file if you have one in monorepo root
-- .github directory if you are not using github
-- analysis_options.yaml file if you have one in monorepo root
+- if you remove this you need to adjust apps structure
 
 ## Adding localizations
 

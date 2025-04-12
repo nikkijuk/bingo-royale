@@ -1,0 +1,7 @@
+started: "01-01-2020"
+finished: "01-01-2020"
+width: 5
+height: 5
+found: 0
+selected: [4, 5]
+elements: ["a", "b", "c"]

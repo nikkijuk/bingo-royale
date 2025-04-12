@@ -2,8 +2,20 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/apps/simplebingo/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/simplebingo/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/simplebingo/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/config/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/config/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/config/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/model/bingo_model/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/model/bingo_model/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/model/bingo_model/build" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>

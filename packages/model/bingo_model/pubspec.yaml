@@ -1,0 +1,33 @@
+name: bingo_model
+description: Bingo Domain Model
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.5.0
+  flutter: ^3.24.0
+
+dependencies:
+  config:
+    path: ../../config
+  flutter:
+    sdk: flutter
+  freezed_annotation: ^3.0.0
+
+dev_dependencies:
+  build_runner: ^2.4.9
+  flutter_test:
+    sdk: flutter
+  freezed: ^3.0.6
+  json_serializable: any
+  mocktail: ^1.0.4
+  very_good_analysis: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/
+    - assets/game1.yaml
+

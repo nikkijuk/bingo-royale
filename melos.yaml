@@ -1,0 +1,419 @@
+name: bingo_royale_model
+version: 0.0.1
+publish_to: none
+description: Bingo royale
+author: Jukka Nikki
+repository: https://github.com/nikkijuk/playwithdash/
+
+# configure melos to use sdk configured with fvm (can be overridden using env params for CI/CD)
+# fvm flutter sdk is configured in .fvm/fvm_config.json
+#sdkPath: .fvm/flutter_sdk
+
+# not currently needed - check before taking in use
+# configure melos to use pubspec.yaml overrides
+#command:
+#  bootstrap:
+#    usePubspecOverrides: true
+
+packages:
+  - apps/**
+  - packages/**
+
+# note about melos commands
+
+# melos run <command> runs the command defined in melos.yaml
+# melos exec <command> runs the command in all packages
+# melos exec -c 1 -- <command> runs the command in all packages with concurrency 1
+
+# example of melos commands
+
+# melos analyze and melos run analyze are different
+# melos analyze runs internal implementation of melos anlyze
+# melos run analyze runs the script defined in melos.yaml
+# melos exec -- flutter analyze runs flutter analyze on all packages
+# same applies to other melos commands, ex. format and clean
+
+scripts:
+
+  clean:select:
+    run: flutter clean
+    description: Clean selected package.
+    exec:
+      concurrency: 1
+    packageFilters:
+      file-exists: pubspec.yaml
+
+  # note: melos clean does not run this script, but melos run clean does
+  clean:
+    run: melos run clean:select --no-select
+    description: Clean all packages.
+
+  fix:select:
+    run: dart fix --apply
+    description: Fix selected package.
+    exec:
+      concurrency: 1
+    packageFilters:
+      file-exists: pubspec.yaml
+
+  fix:
+    run: melos run fix:select --no-select
+    description: Fix packages.
+
+  fix:check:select:
+    run: dart fix --dry-run
+    description: Check if fixes exist for selected package.
+    exec:
+      concurrency: 1
+    packageFilters:
+      file-exists: pubspec.yaml
+
+  fix:check:
+    run: melos run fix:check:select --no-select
+    description: Check if fixes exist for packages.
+
+  get:select:
+    run: dart pub get
+    description: Get dependencies for selected package.
+    exec:
+      concurrency: 1
+    packageFilters:
+      file-exists: pubspec.yaml
+
+  get:
+    run: melos run get:select --no-select
+    description: Get all dependencies for all packages.
+
+  # upgrade dependencies for selected packages, lock file is updated
+  # see https://dart.dev/tools/pub/cmd/pub-upgrade
+  upgrade:select:
+    run: flutter pub upgrade
+    description: Upgrade dependencies for selected package.
+    exec:
+      concurrency: 1
+      orderDependents: true
+    packageFilters:
+      fileExists: pubspec.yaml
+
+  upgrade:
+    run: melos run upgrade:select --no-select
+    description: Upgrade all dependencies for all packages.
+
+  # upgrade dependencies for selected packages, lock file is updated
+  # see https://dart.dev/tools/pub/cmd/pub-upgrade
+  upgrade:major:select:
+    run: flutter pub upgrade --major-versions
+    description: Upgrade dependencies for selected package.
+    exec:
+      concurrency: 1
+      orderDependents: true
+    packageFilters:
+      fileExists: pubspec.yaml
+
+  upgrade:major:
+    run: melos run upgrade:major:select --no-select
+    description: Upgrade all dependencies for all packages.
+
+  # upgrade dependencies for selected packages, lock file is updated
+  # see https://dart.dev/tools/pub/cmd/pub-upgrade
+  upgrade:major:dry:select:
+    run: flutter pub upgrade --major-versions --dry-run
+    description: Upgrade dependencies for selected package.
+    exec:
+      concurrency: 1
+      orderDependents: true
+    packageFilters:
+      fileExists: pubspec.yaml
+
+  upgrade:major:dry:
+    run: melos run upgrade:major:dry:select --no-select
+    description: Upgrade all dependencies for all packages.
+
+  # configuration is in apps l10n.yaml
+  intl:app:select:
+    run: flutter gen-l10n
+    description: Generate intl files for selected app that has l10n.yaml
+    exec:
+      concurrency: 1
+    packageFilters:
+      flutter: true
+      dirExists: lib/l10n
+
+  # configuration is in packages l10n.yaml
+  intl:select:
+    run: flutter gen-l10n
+    description: Generate intl files for selected package that has l10n.yaml
+    exec:
+      concurrency: 1
+    packageFilters:
+      flutter: true
+      dirExists: lib/src/l10n
+
+  intl:
+    run: melos run intl:select --no-select && melos run intl:app:select --no-select
+    description: Run all intl generations in this project.
+
+  format:select:
+    run: dart format . --fix
+    description: formats dart code in single package
+    exec:
+      concurrency: 1
+    packageFilters:
+      file-exists: pubspec.yaml
+
+  # formats all dart code
+  # note: melos format does not run this script, but melos run format does
+  format:
+    run: melos run format:select --no-select
+    description: Format code in all packages.
+
+  format:check:select:
+    run: dart format . --output none --set-exit-if-changed
+    description: checks if dart code is following format - fails if not
+    exec:
+      concurrency: 1
+    packageFilters:
+      file-exists: pubspec.yaml
+
+  format:check:
+    run: melos run format:check:select --no-select
+    description: checks if dart code is following format - fails if not
+
+  analyze:select:
+    run: flutter analyze --congratulate
+    description: |
+      runs analyze on selected package.
+       - Note: you can also rely on your IDEs Dart Analysis / Issues window.
+    exec:
+      concurrency: 1
+    packageFilters:
+      file-exists: pubspec.yaml
+
+  analyze:verbose:select:
+    run: flutter analyze --congratulate --verbose
+    description: |
+      Run the built in linter for selected package.
+    packageFilters:
+      file-exists: pubspec.yaml
+
+  analyze:verbose:
+    run: melos analyze:verbose:select --no-select
+    exec:
+      fastFail: true
+    description: Run the built in linter for all packages.
+
+  # runs analyze on every package
+  # note: https://melos.invertase.dev/commands/analyze does the same
+  # "melos run analyze" runs this script
+  # "melos analyze" runs internal implementation of melos anlyze
+  # "melos exec -- flutter analyze" runs flutter analyze on all packages
+  analyze:
+    run: melos run analyze:select --no-select
+    description: Run analyze in all packages.
+
+  generate:select:
+    run: dart run build_runner build --delete-conflicting-outputs
+    description: Generate code on single package that has build runner as dependency
+    exec:
+      concurrency: 1
+    packageFilters:
+      dependsOn: build_runner
+
+  generate:
+    run: melos exec -c 1 --depends-on="build_runner" -- "dart run build_runner build --delete-conflicting-outputs"
+    description: Generate code on all package that have build runner as dependency
+
+  test:select:
+    run: flutter test
+    description: runs all tests in selected package
+    exec:
+      concurrency: 1
+    packageFilters:
+      dirExists: test
+
+  test:
+    run: melos run test:select --no-select
+    description: runs all tests in all packages
+
+  test:ff:select:
+    run: flutter test
+    exec:
+      concurrency: 6
+      failFast: true
+    packageFilters:
+      dirExists: test
+    description: Runs all tests in selected package until first failure
+
+  test:ff:
+    run: melos test:ff:select --no-select
+    description: Runs all tests in all packages until first failure
+
+
+  # gives a list of packages to which one can selected and code coverage is measured for exactly this one
+  # NOTE: this kind of approach does not work with windows
+  coverage:
+    run: |
+      melos exec -- flutter test --coverage &&
+      melos exec -- genhtml coverage/lcov.info --output-directory=coverage/
+    description: Generate coverage for the selected package.
+    packageFilters:
+      dirExists: test
+
+  build:all:
+    run: |
+      melos bootstrap
+      melos run build:ios_pub --no-select
+      melos run build:android_pub --no-select
+      melos run build:web --no-select
+    description: Build all apps
+
+  build:ios:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter build ios --no-codesign --no-pub"
+    description: Build a specific app for iOS.
+    packageFilters:
+      dirExists:
+        - ios
+      scope: "*firstapp*"
+
+  build:ios_pub:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter build ios --no-codesign"
+    description: |
+      Build a specific app for iOS.
+      melos bootstrap does not generate all files generated by a build that runs
+      `pub get`, and `flutter drive` does not either, so it is still necessary to
+      build sometimes without the `--no-pub` switch. Careful: `melos bootstrap` after.
+    packageFilters:
+      dirExists:
+        - ios
+      scope: "*firstapp*"
+
+  build:android:dev:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter build apk --flavor development --target lib/main_development.dart"
+    description: Build a specific app for Android.
+    packageFilters:
+      dirExists:
+        - android
+      scope: "*firstapp*"
+
+  build:android:prod:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter build apk --flavor production --target lib/main_production.dart"
+    description: Build a specific app for Android.
+    packageFilters:
+      dirExists:
+        - android
+      scope: "*firstapp*"
+
+  build:android_pub:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter build apk"
+    description: Build a specific app for Android.
+    packageFilters:
+      dirExists:
+        - android
+      scope: "*firstapp*"
+
+  build:macos:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter build macos --no-pub"
+    description: |
+      Build a specific app for macOS.
+       - Requires `flutter channel stable`.
+       - Requires `flutter config --enable-macos-desktop` set.
+    packageFilters:
+      dirExists:
+        - macos
+      scope: "*firstapp*"
+
+  build:linux:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter build linux --no-pub"
+    description: |
+      Build a specific app for web.
+       - Requires `flutter channel stable`.
+       - Requires `flutter config --enable-linux-desktop` set.
+    packageFilters:
+      dirExists:
+        - linux
+      scope: "*firstapp*"
+
+  build:windows:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter build windows --no-pub"
+    description: |
+      Build a specific app for windows.
+       - Requires `flutter channel stable`.
+       - Requires `flutter config --enable-windows-desktop` set.
+    packageFilters:
+      dirExists:
+        - windows
+      scope: "*firstapp*"
+
+  build:web:
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter build web --no-pub"
+    description: |
+      Build a specific app for web.
+       - Requires `flutter channel stable`.
+    packageFilters:
+      dirExists:
+        - web
+      scope: "*firstapp*"
+
+  graph:melos:qviz:
+    run: melos list --gviz > dependency_graph.gviz
+    exec:
+      concurrency: 1
+    packageFilters:
+      dirExists: android
+    description: Generate dependency graph with melos
+
+  graph:melos:svg:
+    run: melos list --gviz | dot -Tsvg > dependency_graph.svg
+    exec:
+      concurrency: 1
+    packageFilters:
+      dirExists: android
+    description: generate dependency graph with melos and convert to svg
+
+  # remember to install lakos and graphviz
+  # dart pub global activate lakos
+  graph:lakos:svg:
+    run: lakos -m -i "{lib/l10n/**,lib/src/l10n/**,test/**}" . | dot -Tsvg -o lakos_graph.svg
+    exec:
+      concurrency: 1
+    description: generate dependency graph with melos and convert to svg
+
+  # brew install osv-scanner
+  osv:scan:select:
+    # --all-packages
+    # --format json
+    # --lockfile=pubspec.lock
+    run: osv-scanner scan --lockfile=pubspec.lock
+    exec:
+      concurrency: 1
+    description: scan for vulnerabilities
+    packageFilters:
+      fileExists: pubspec.lock
+
+  osv:scan:
+    run: melos osv:scan:select --no-select
+    description: Runs osv-scanner for all packages.
+
+  osv:licenses:
+    run: osv-scanner --licenses="BSD-3-Clause,Apache-2.0,MIT" --lockfile=pubspec.lock
+    exec:
+      concurrency: 1
+    description: scan for licenses
