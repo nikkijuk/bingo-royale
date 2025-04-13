@@ -24,4 +24,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  generate: true
+
+  # Handles localization tasks. This field can appear as a subfield of flutter and material.
+  # generate: true
