@@ -154,9 +154,8 @@ scripts:
     description: Run all intl generations in this project.
 
   format:select:
-    # run: dart format . --fix
-    # run: dart format --line-length 80 lib test
-    run: dart format --line-length 80 --set-exit-if-changed lib test
+    # checked by : dart format --line-length 80 --set-exit-if-changed lib test
+    run: dart format --line-length 80 lib test
     description: formats dart code in single package
     exec:
       concurrency: 1

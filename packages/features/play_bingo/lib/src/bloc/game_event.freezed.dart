@@ -119,6 +119,69 @@ class _$SelectedCopyWithImpl<$Res> implements $SelectedCopyWith<$Res> {
 
 /// @nodoc
 
+class Unselected implements GameEvent {
+  const Unselected(this.element);
+
+  final String element;
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UnselectedCopyWith<Unselected> get copyWith =>
+      _$UnselectedCopyWithImpl<Unselected>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Unselected &&
+            (identical(other.element, element) || other.element == element));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, element);
+
+  @override
+  String toString() {
+    return 'GameEvent.unselected(element: $element)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UnselectedCopyWith<$Res>
+    implements $GameEventCopyWith<$Res> {
+  factory $UnselectedCopyWith(
+          Unselected value, $Res Function(Unselected) _then) =
+      _$UnselectedCopyWithImpl;
+  @useResult
+  $Res call({String element});
+}
+
+/// @nodoc
+class _$UnselectedCopyWithImpl<$Res> implements $UnselectedCopyWith<$Res> {
+  _$UnselectedCopyWithImpl(this._self, this._then);
+
+  final Unselected _self;
+  final $Res Function(Unselected) _then;
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? element = null,
+  }) {
+    return _then(Unselected(
+      null == element
+          ? _self.element
+          : element // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
 class Finished implements GameEvent {
   const Finished();
 
