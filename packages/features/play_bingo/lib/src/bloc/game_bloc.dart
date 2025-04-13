@@ -22,11 +22,13 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   FutureOr<void> _onSelected(Selected event, Emitter<GameState> emit) {
     final elementId = state.findElementId(event.element);
-    emit(state.copyWith(selected: state.selected..add(elementId)));
+    final newSelection = {elementId, ...state.selected};
+    emit(state.copyWith(selected: newSelection));
   }
 
   FutureOr<void> _onUnselected(Unselected event, Emitter<GameState> emit) {
     final elementId = state.findElementId(event.element);
-    emit(state.copyWith(selected: state.selected..remove(elementId)));
+    final newSelection = {...state.selected}..remove(elementId);
+    emit(state.copyWith(selected: newSelection));
   }
 }

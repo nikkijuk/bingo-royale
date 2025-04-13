@@ -15,12 +15,43 @@ void main() {
       });
 
       blocTest<GameBloc, GameState>(
-        'emits [GameState] has started set when [Started] happens}',
+        'emits [GameState] has started set when [Started] happens',
         build: () => GameBloc(elements),
         act: (bloc) => bloc.add(const Started()),
         expect: () => [isA<GameState>()],
         verify: (bloc) => bloc.state.started != null,
       );
+
+      blocTest<GameBloc, GameState>(
+        'emits [GameState] has finished set when [Finished] happens',
+        build: () => GameBloc(elements),
+        act: (bloc) => bloc.add(const Finished()),
+        expect: () => [isA<GameState>()],
+        verify: (bloc) => bloc.state.finished != null,
+      );
+
+      blocTest<GameBloc, GameState>(
+        'emits [GameState] has one element selected set when [Selected] happens',
+        build: () => GameBloc(elements),
+        act: (bloc) => bloc.add(const Selected("a")),
+        expect: () => [isA<GameState>()],
+        verify: (bloc) => bloc.state.found == 1,
+      );
+
+      blocTest<GameBloc, GameState>(
+        'emits [GameState] has one element unselected set when [Unselected] happens',
+        build: () => GameBloc(elements),
+        act: (bloc) =>
+        {
+          bloc.add(const Selected("a")),
+          bloc.add(const Selected("b")),
+          bloc.add(const Unselected("a"))
+
+        },
+        expect: () => [isA<GameState>(), isA<GameState>(), isA<GameState>()],
+        verify: (bloc) => bloc.state.found == 1,
+      );
+
     },
     // if test is failing it can be ignored for a while..
     //skip: true,
