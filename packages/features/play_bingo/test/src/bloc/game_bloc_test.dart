@@ -41,17 +41,14 @@ void main() {
       blocTest<GameBloc, GameState>(
         'emits [GameState] has one element unselected set when [Unselected] happens',
         build: () => GameBloc(elements),
-        act: (bloc) =>
-        {
+        act: (bloc) => {
           bloc.add(const Selected("a")),
           bloc.add(const Selected("b")),
           bloc.add(const Unselected("a"))
-
         },
         expect: () => [isA<GameState>(), isA<GameState>(), isA<GameState>()],
         verify: (bloc) => bloc.state.found == 1,
       );
-
     },
     // if test is failing it can be ignored for a while..
     //skip: true,

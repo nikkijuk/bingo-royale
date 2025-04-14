@@ -1,0 +1,10 @@
+permittedLicenses:
+  - MIT
+  - BSD-3-Clause
+  - Apache-2.0
+
+approvedPackages:
+  no-file:
+    - flutter_localizations
+    - flutter_test
+    - component_library

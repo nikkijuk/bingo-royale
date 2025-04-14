@@ -3,9 +3,12 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/apps/simplebingo/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/apps/simplebingo/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/apps/simplebingo/build" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/packages/config/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/config/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/config/build" />
@@ -15,6 +18,9 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/model/bingo_model/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/model/bingo_model/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/model/bingo_model/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/testing/test_helpers/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/testing/test_helpers/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/testing/test_helpers/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

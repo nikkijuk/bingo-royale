@@ -1,0 +1,25 @@
+{
+  "contactFormTitle": "Contact Form",
+
+  "newQuery": "New Query",
+
+  "send":"Send",
+
+  "name":"Name",
+  "invalidName":"Invalid name",
+  "nameInstruction":"full name",
+
+  "email":"E-Mail Address",
+  "invalidEMail":"Invalid email",
+  "emailInstruction":"max.muster@seleon.com",
+
+  "note":"Note",
+  "invalidNote":"Ungültige Note",
+  "noteInstruction":"max. 1000 Zeichen",
+
+  "terms":"I hereby agree that my data may be processed by seleon GmbH and used to contact me by e-mail. You can find more information in our ",
+  "termsDataPrivacy": "privacy policy.",
+
+  "inProgress": "In progress",
+  "failure": "Failure"
+}

@@ -1,0 +1,28 @@
+name: test_helpers
+description: test helpers
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+  flutter: ^3.0.0
+
+dependencies:
+  # Note: component_library can't use this test package since it would result cycle
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.0
+  flutter_localizations:
+    sdk: flutter
+  flutter_markdown: ^0.6.19
+  # Note: flutter_test is used in lib, so it is not a dev_dependency
+  flutter_test:
+    sdk: flutter
+  intl: any
+  mockito: ^5.4.4
+
+dev_dependencies:
+  bloc: ^9.0.0
+  build_runner: ^2.4.9
+  test: any
+  very_good_analysis: ^7.0.0

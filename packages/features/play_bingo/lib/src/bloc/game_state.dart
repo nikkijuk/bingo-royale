@@ -30,4 +30,15 @@ extension GameStateExtension on GameState {
 
   // shared method for finding element ID
   int findElementId(String element) => elements.indexOf(element);
+
+  // is element selected
+  bool isSelected(int index) => selected.contains(index);
+
+  // transfer to list of cells
+  List<Cell> getCells() => elements
+      .map((element) =>
+          (label: element, selected: isSelected(findElementId(element))))
+      .toList();
 }
+
+typedef Cell = ({String label, bool selected});

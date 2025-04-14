@@ -28,4 +28,6 @@ dev_dependencies:
   json_serializable: any
   mocktail: ^1.0.4
   test: any
+  test_helpers:
+    path: ../../testing/test_helpers
   very_good_analysis: ^6.0.0

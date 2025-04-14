@@ -1,0 +1,129 @@
+SPDXVersion: SPDX-2.2
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: test_helpers
+DocumentNamespace: https://pub.dev/packages/test_helpers
+LicenseListVersion: 3.8
+Creator: Tool: https://pub.dev/packages/sbom
+Created: 2024-12-04T10:16:47Z
+
+
+PackageName: test-helpers
+SPDXID: SPDXRef-Package-test-helpers
+PackageVersion: 0.1.0+1
+PackageFileName: test_helpers
+PackageSupplier: NOASSERTION
+PackageOriginator: NOASSERTION
+PackageDownloadLocation: https://pub.dev/packages/test_helpers
+FilesAnalyzed: true
+PackageVerificationCode: ea666c1177230910363c33b40109e344b08bdaa7
+PackageHomePage: https://pub.dev/packages/test_helpers
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseInfoFromFiles: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: NOASSERTION
+PackageSummary: <text>test helpers</text>
+
+
+FileName: lib/src/l10n/test_helpers_localizations.dart
+SPDXID: SPDXRef-test-helpers-localizations-0
+FileType: SOURCE
+FileChecksum: SHA1: d7306fb7a9d1f90c1ddb93aa3247ccb8d506a9bc
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: lib/src/l10n/test_helpers_localizations_de.dart
+SPDXID: SPDXRef-test-helpers-localizations-de-1
+FileType: SOURCE
+FileChecksum: SHA1: d86808b417d5971ae8426a81a54fdbf3035ae962
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: lib/src/l10n/test_helpers_localizations_en.dart
+SPDXID: SPDXRef-test-helpers-localizations-en-2
+FileType: SOURCE
+FileChecksum: SHA1: b35e74558c2ee3fcd3ecb6d3615a248879569446
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: lib/src/markdown/fake_markdown_reader.dart
+SPDXID: SPDXRef-fake-markdown-reader-3
+FileType: SOURCE
+FileChecksum: SHA1: a4855319cb6845caac8226edcaf9837fb6ed5b33
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: lib/src/markdown/markdown_text_finder.dart
+SPDXID: SPDXRef-markdown-text-finder-4
+FileType: SOURCE
+FileChecksum: SHA1: d9992f922999f2324b33d9c370c242ea9ac5dc15
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: lib/src/stream/stream_operations.dart
+SPDXID: SPDXRef-stream-operations-5
+FileType: SOURCE
+FileChecksum: SHA1: 524dfad5c2ac11b9dfb19b01040ce59c1ac37c18
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: lib/src/stream/stream_operations_test.mocks.dart
+SPDXID: SPDXRef-stream-operations-test.mocks-6
+FileType: SOURCE
+FileChecksum: SHA1: 59ca17be6858313c5ae451103b5b5390c579f5bc
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: lib/src/strings/string_operations.dart
+SPDXID: SPDXRef-string-operations-7
+FileType: SOURCE
+FileChecksum: SHA1: a29c74213ed153ea4ca4a29d195c845f31d44767
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: lib/src/widget/pump_widget.dart
+SPDXID: SPDXRef-pump-widget-8
+FileType: SOURCE
+FileChecksum: SHA1: 1fef016b3e8f1fcaee6c2b1729e7238642df72f8
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: lib/test_helpers.dart
+SPDXID: SPDXRef-test-helpers-9
+FileType: SOURCE
+FileChecksum: SHA1: a02f1b86b23351efd78309d8dbe94507bd3081b2
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+FileName: pubspec.yaml
+SPDXID: SPDXRef-pubspec-10
+FileType: TEXT
+FileChecksum: SHA1: d33ee1d82aac7286e6bbf6798b128cb9071af746
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+
+
+Relationship: SPDXRef-pubspec-10 DEPENDENCY_MANIFEST_OF SPDXRef-Package-test-helpers
+
+

@@ -1,0 +1,8 @@
+arb-dir: lib/src/l10n
+template-arb-file: messages_en.arb
+output-localization-file: test_helpers_localizations.dart
+output-class: TestHelpersLocalizations
+synthetic-package: false
+nullable-getter: false
+format: true
+header: // coverage:ignore-file
