@@ -22,27 +22,27 @@ class BingoBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GameBloc, GameState>(builder: (context, state) {
       final bloc = context.read<GameBloc>();
-      return
-        GridView.count(
-          crossAxisCount: state.width,
-          children: state
-              .getCells()
-              .map((cell) => InkWell(
-                    onTap: cell.selected
-                        ? () => bloc.add(Unselected(cell.label))
-                        : () => bloc.add(Selected(cell.label)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        //const SizedBox(height: 8),
-                        Text(cell.label,
-                            textAlign: TextAlign.center,
-                            style: cell.selected ? selectedCell : freeCell),
-                      ],
-                    ),
-                  ))
-              .toList(),
-
+      return GridView.count(
+        crossAxisCount: state.width,
+        scrollDirection: Axis.horizontal,
+        children: state
+            .getCells()
+            .map((cell) => InkWell(
+                  onTap: cell.selected
+                      ? () => bloc.add(Unselected(cell.label))
+                      : () => bloc.add(Selected(cell.label)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        cell.label,
+                        textAlign: TextAlign.center,
+                        style: cell.selected ? selectedCell : freeCell,
+                      ),
+                    ],
+                  ),
+                ))
+            .toList(),
       );
     });
   }

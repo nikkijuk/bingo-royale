@@ -20,16 +20,24 @@ class BingoBoardPage extends StatelessWidget {
           providers: [
             BlocProvider<GameBloc>(
               create: (_) {
-                return GameBloc([
-                  "flutter",
+                return GameBloc(labels: [
+                  "Flutter",
                   "bingo",
                   "challenge",
-                  "is",
+                  "is", // 4
                   "a",
                   "structured",
                   "learning",
-                  "experiment"
-                ]);
+                  "experiment.", // 8
+                  "Get",
+                  "ready",
+                  "for",
+                  "new", // 12
+                  "skirlls.",
+                  "Never",
+                  "stop",
+                  "experimenting.", // 16
+                ], height: 4, width: 4);
               },
             ),
           ],
