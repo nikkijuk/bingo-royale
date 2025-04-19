@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:play_bingo/play_bingo.dart';
 import 'package:simplebingo/counter/counter.dart';
 
 import 'package:simplebingo/l10n/arb/app_localizations.dart';
@@ -17,7 +18,8 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      //home: const CounterPage(),
+      home: const BingoBoardPage (),
     );
   }
 }

@@ -7,27 +7,33 @@ import 'bingo_board_view.dart';
 
 class BingoBoardPage extends StatelessWidget {
   const BingoBoardPage({
-    required this.gridItems,
     super.key,
   });
-
-  final List<BingoBoardCell> gridItems;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Dashboard'),
+          title: const Text('Flutter Bingo Challenge'),
         ),
         body: MultiBlocProvider(
           providers: [
             BlocProvider<GameBloc>(
               create: (_) {
-                return GameBloc(["a", "b", "c"]);
+                return GameBloc([
+                  "flutter",
+                  "bingo",
+                  "challenge",
+                  "is",
+                  "a",
+                  "structured",
+                  "learning",
+                  "experiment"
+                ]);
               },
             ),
           ],
-          child: Center(
+          child: const Center(
             child: BingoBoardView(),
           ),
         ));
