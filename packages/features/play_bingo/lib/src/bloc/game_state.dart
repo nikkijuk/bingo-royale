@@ -39,6 +39,27 @@ extension GameStateExtension on GameState {
       .map((element) =>
           (label: element, selected: isSelected(findElementId(element))))
       .toList();
+
+  int matchingRows() {
+    return List.generate(height, (int row) => row).where((row) => checkRow(row)).length;;;
+  }
+
+  // check row, rows start from 0
+  bool checkRow(int row) {
+    return List.generate(width, (int col) => row*width +  col).every((index) => isSelected(index));
+  }
+
+  int matchingColumns() {
+    return List.generate(width, (int col) => col).where((col) => checkColumn(col)).length;;;
+  }
+
+  // check column
+  bool checkColumn(int col) {
+    return List.generate(height, (int row) => row*height + col).every((index) => isSelected(index));
+  }
+
+  // check axes // upleft-to-rightdown, leftdown-to-rightup
+
 }
 
 typedef Cell = ({String label, bool selected});
