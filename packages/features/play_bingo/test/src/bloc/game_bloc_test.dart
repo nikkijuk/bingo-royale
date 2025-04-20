@@ -11,12 +11,12 @@ void main() {
     'GameBloc tests',
     () {
       test('initial state is correctly initialized', () {
-        expect(GameBloc(elements).state.width, equals(5));
+        expect(GameBloc(labels: elements).state.width, equals(5));
       });
 
       blocTest<GameBloc, GameState>(
         'emits [GameState] has started set when [Started] happens',
-        build: () => GameBloc(elements),
+        build: () => GameBloc(labels: elements),
         act: (bloc) => bloc.add(const Started()),
         expect: () => [isA<GameState>()],
         verify: (bloc) => bloc.state.started != null,
@@ -24,7 +24,7 @@ void main() {
 
       blocTest<GameBloc, GameState>(
         'emits [GameState] has finished set when [Finished] happens',
-        build: () => GameBloc(elements),
+        build: () => GameBloc(labels: elements),
         act: (bloc) => bloc.add(const Finished()),
         expect: () => [isA<GameState>()],
         verify: (bloc) => bloc.state.finished != null,
@@ -32,7 +32,7 @@ void main() {
 
       blocTest<GameBloc, GameState>(
         'emits [GameState] has one element selected set when [Selected] happens',
-        build: () => GameBloc(elements),
+        build: () => GameBloc(labels: elements),
         act: (bloc) => bloc.add(const Selected("a")),
         expect: () => [isA<GameState>()],
         verify: (bloc) => bloc.state.found == 1,
@@ -40,7 +40,7 @@ void main() {
 
       blocTest<GameBloc, GameState>(
         'emits [GameState] has one element unselected set when [Unselected] happens',
-        build: () => GameBloc(elements),
+        build: () => GameBloc(labels: elements),
         act: (bloc) => {
           bloc.add(const Selected("a")),
           bloc.add(const Selected("b")),

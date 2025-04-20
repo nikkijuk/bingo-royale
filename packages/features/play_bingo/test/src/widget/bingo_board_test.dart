@@ -17,7 +17,7 @@ void main() {
   testWidgets('BingoBoardView shows success screen', (tester) async {
     var finished = false;
 
-    final bloc = GameBloc(["a","b","c"]);
+    final bloc = GameBloc(labels: ["a","b","c"]);
     final blocProvider = BlocProvider<GameBloc>(create: (_) => bloc);
     const localizations = PlayBingoLocalizations.localizationsDelegates;
 
