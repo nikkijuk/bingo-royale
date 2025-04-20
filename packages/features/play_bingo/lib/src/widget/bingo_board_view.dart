@@ -14,13 +14,14 @@ class BingoBoardView extends StatelessWidget {
       builder: (context, state) {
         final state = context.read<GameBloc>().state;
 
-        final found = state.found;
-        final foundRows = state.foundRows;
-        final foundColumns = state.foundColumns;
+        final total = state.found;
+        final rows = state.foundRows;
+        final columns = state.foundColumns;
+        final axes = state.foundAxes;
 
         return Scaffold(
           appBar: AppBar(
-            title: Text('found $found, rows $foundRows, columns $foundColumns'),
+            title: Text('found $total, rows $rows, cols $columns, axes $axes'),
           ),
           body: const BingoBoard(),
         );

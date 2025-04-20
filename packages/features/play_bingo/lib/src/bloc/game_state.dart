@@ -25,19 +25,21 @@ abstract class GameState with _$GameState {
 
 // extension for convenience
 extension GameStateExtension on GameState {
-  // getter for number of elements found already
+  /// get number of elements selected
   int get found => selected.length;
 
   // shared method for finding element ID
   int _findElementId(String element) => elements.indexOf(element);
 
-  // is element selected
+  /// is element selected
   bool isSelected(int index) => selected.contains(index);
 
-  // transfer to list of cells
+  /// get list of cells
   List<Cell> getCells() => elements
-      .map((element) =>
-          (label: element, selected: isSelected(_findElementId(element))),)
+      .map(
+        (element) =>
+            (label: element, selected: isSelected(_findElementId(element))),
+      )
       .toList();
 
   /// amount of rows which are fully selected
@@ -60,9 +62,25 @@ extension GameStateExtension on GameState {
         .every(isSelected);
   }
 
-  // check axes // upleft-to-rightdown, leftdown-to-rightup
+  /// amount of axes which are fully selected
+  int get foundAxes =>
+      [_checkDownAxis(), _checkUpAxis()].where((axis) => axis).length;
 
+  /// check up-down axis
+  bool _checkDownAxis() {
+    return List.generate(height, (int pos) => pos * height + pos)
+        .every(isSelected);
+  }
 
+  /// check down-up axis
+  bool _checkUpAxis() {
+    return List.generate(
+      height,
+      (int pos) => ((height - pos - 1) * height) + pos,
+    ).every(isSelected);
+  }
+
+  /// create new state with selected element
   GameState selectElement(String element) {
     final elementId = _findElementId(element);
     final newSelection = {elementId, ...selected};
@@ -70,13 +88,13 @@ extension GameStateExtension on GameState {
     return copyWith(selected: newSelection);
   }
 
+  /// create new state with unselected element
   GameState unselectElement(String element) {
     final elementId = _findElementId(element);
     final newSelection = {...selected}..remove(elementId);
 
     return copyWith(selected: newSelection);
   }
-
 }
 
 typedef Cell = ({String label, bool selected});
