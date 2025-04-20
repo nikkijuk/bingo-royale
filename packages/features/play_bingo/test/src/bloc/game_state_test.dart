@@ -76,6 +76,40 @@ void main() {
 
     });
 
+    test('state know when axis down-up is fully selected', () {
+      final state = GameState(elements: labels, width: 3, height: 3);
+
+      expect(state.width, 3);
+      expect(state.height, 3);
+      expect(state.found, 0);
+
+      expect(state.foundAxes, 0);
+
+      final selectedState1 = state.selectElement('r3c1');
+      final selectedState2 = selectedState1.selectElement('r2c2');
+      final selectedState3 = selectedState2.selectElement('r1c3');
+
+      expect(selectedState3.foundAxes, 1);
+
+    });
+
+    test('state know when axis up-down is fully selected', () {
+      final state = GameState(elements: labels, width: 3, height: 3);
+
+      expect(state.width, 3);
+      expect(state.height, 3);
+      expect(state.found, 0);
+
+      expect(state.foundAxes, 0);
+
+      final selectedState1 = state.selectElement('r1c1');
+      final selectedState2 = selectedState1.selectElement('r2c2');
+      final selectedState3 = selectedState2.selectElement('r3c3');
+
+      expect(selectedState3.foundAxes, 1);
+
+    });
+
 
   });
 }
