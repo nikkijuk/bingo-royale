@@ -29,7 +29,7 @@ extension GameStateExtension on GameState {
   int get found => selected.length;
 
   // shared method for finding element ID
-  int findElementId(String element) => elements.indexOf(element);
+  int _findElementId(String element) => elements.indexOf(element);
 
   // is element selected
   bool isSelected(int index) => selected.contains(index);
@@ -37,7 +37,7 @@ extension GameStateExtension on GameState {
   // transfer to list of cells
   List<Cell> getCells() => elements
       .map((element) =>
-          (label: element, selected: isSelected(findElementId(element))),)
+          (label: element, selected: isSelected(_findElementId(element))),)
       .toList();
 
   /// amount of rows which are fully selected
@@ -61,6 +61,22 @@ extension GameStateExtension on GameState {
   }
 
   // check axes // upleft-to-rightdown, leftdown-to-rightup
+
+
+  GameState selectElement(String element) {
+    final elementId = _findElementId(element);
+    final newSelection = {elementId, ...selected};
+
+    return copyWith(selected: newSelection);
+  }
+
+  GameState unselectElement(String element) {
+    final elementId = _findElementId(element);
+    final newSelection = {...selected}..remove(elementId);
+
+    return copyWith(selected: newSelection);
+  }
+
 }
 
 typedef Cell = ({String label, bool selected});

@@ -15,12 +15,32 @@ final labels = [
 
 void main() {
   group('Game state tests', () {
-    test('Empty state can be instantiated', () {
+    test('State without board can be instantiated', () {
       expect(const GameState(), isNotNull);
     });
 
-    test('Empty state can be instantiated', () {
-      expect(const GameState(), isNotNull);
+    test('state with 3 x 3 board can be instantiated', () {
+      expect(GameState(elements: labels, width: 3, height: 3), isNotNull);
+    });
+
+    test('state can be selected and unselected', () {
+      final state = GameState(elements: labels, width: 3, height: 3);
+
+      expect(state.width, 3);
+      expect(state.height, 3);
+      expect(state.found, 0);
+
+      final selectedState = state.selectElement('r1c1');
+
+      expect(selectedState.width, 3);
+      expect(selectedState.height, 3);
+      expect(selectedState.found, 1);
+
+      final unselectedState = selectedState.unselectElement('r1c1');
+
+      expect(unselectedState.width, 3);
+      expect(unselectedState.height, 3);
+      expect(unselectedState.found, 0);
     });
 
 
