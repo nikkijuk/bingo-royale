@@ -28,7 +28,6 @@ class BingoBoard extends StatelessWidget {
         child:
         GridView.count(
         crossAxisCount: state.width,
-        scrollDirection: Axis.vertical,
         children: state
             .getCells()
             .map((cell) => InkWell(
@@ -47,7 +46,7 @@ class BingoBoard extends StatelessWidget {
                   ),
                 ),)
             .toList(),
-      )
+      ),
       );
     },);
   }

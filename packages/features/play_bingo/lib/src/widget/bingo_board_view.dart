@@ -10,13 +10,21 @@ class BingoBoardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GameBloc, GameState>(builder: (context, state) {
-      final state = context.read<GameBloc>().state;
+    return BlocBuilder<GameBloc, GameState>(
+      builder: (context, state) {
+        final state = context.read<GameBloc>().state;
 
-      return Scaffold(
-      appBar: AppBar(title: Text('found ${state.found}, rows ${state.foundRows}, columns ${state.foundColumns} ')),
-      body: const BingoBoard(),
+        final found = state.found;
+        final foundRows = state.foundRows;
+        final foundColumns = state.foundColumns;
+
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('found $found, rows $foundRows, columns $foundColumns'),
+          ),
+          body: const BingoBoard(),
+        );
+      },
     );
-  },);
   }
 }
