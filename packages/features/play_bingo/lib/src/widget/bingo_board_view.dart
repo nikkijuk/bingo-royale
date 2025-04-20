@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_bingo/src/bloc/game_bloc.dart';
 import 'package:play_bingo/src/bloc/game_state.dart';
 
-import 'bingo_board_cell.dart';
-import 'bingo_board.dart';
+import 'package:play_bingo/src/widget/bingo_board.dart';
 
 class BingoBoardView extends StatelessWidget {
   const BingoBoardView({super.key});
@@ -18,6 +17,6 @@ class BingoBoardView extends StatelessWidget {
       appBar: AppBar(title: Text('found $found')),
       body: const BingoBoard(),
     );
-  });
+  },);
   }
 }

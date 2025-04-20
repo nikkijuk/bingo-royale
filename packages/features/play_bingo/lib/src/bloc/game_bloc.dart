@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
@@ -27,8 +29,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     emit(state.copyWith(selected: newSelection));
 
-    final cols = state.matchingColumns();
-    final rows = state.matchingRows();
+    final cols = state.foundColumns;
+    final rows = state.foundRows;
     print('cols: $cols, rows: $rows');
 
   }
@@ -39,8 +41,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
     emit(state.copyWith(selected: newSelection));
 
-    final cols = state.matchingColumns();
-    final rows = state.matchingRows();
+    final cols = state.foundColumns;
+    final rows = state.foundRows;
     print('cols: $cols, rows: $rows');
 
   }

@@ -37,29 +37,30 @@ extension GameStateExtension on GameState {
   // transfer to list of cells
   List<Cell> getCells() => elements
       .map((element) =>
-          (label: element, selected: isSelected(findElementId(element))))
+          (label: element, selected: isSelected(findElementId(element))),)
       .toList();
 
-  int matchingRows() {
-    return List.generate(height, (int row) => row).where((row) => checkRow(row)).length;;;
+  /// amount of rows which are fully selected
+  int get foundRows =>
+      List.generate(height, (int row) => row).where(_checkRow).length;
+
+  /// check if all elements in row are selected
+  bool _checkRow(int row) {
+    return List.generate(width, (int col) => row * width + col)
+        .every(isSelected);
   }
 
-  // check row, rows start from 0
-  bool checkRow(int row) {
-    return List.generate(width, (int col) => row*width +  col).every((index) => isSelected(index));
-  }
+  /// amount of columns which are fully selected
+  int get foundColumns =>
+      List.generate(width, (int col) => col).where(_checkColumn).length;
 
-  int matchingColumns() {
-    return List.generate(width, (int col) => col).where((col) => checkColumn(col)).length;;;
-  }
-
-  // check column
-  bool checkColumn(int col) {
-    return List.generate(height, (int row) => row*height + col).every((index) => isSelected(index));
+  /// check if all elements in column are selected
+  bool _checkColumn(int col) {
+    return List.generate(height, (int row) => row * height + col)
+        .every(isSelected);
   }
 
   // check axes // upleft-to-rightdown, leftdown-to-rightup
-
 }
 
 typedef Cell = ({String label, bool selected});

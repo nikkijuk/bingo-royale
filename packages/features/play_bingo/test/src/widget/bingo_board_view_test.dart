@@ -8,7 +8,7 @@ import 'package:test_helpers/test_helpers.dart';
 
 void main() {
   testWidgets('BingoBoardView shows success screen', (tester) async {
-    final bloc = GameBloc(labels: ["a","b","c"]);
+    final bloc = GameBloc(labels: ['a','b','c']);
     final blocProvider = BlocProvider<GameBloc>(create: (_) => bloc);
     const localizations = PlayBingoLocalizations.localizationsDelegates;
 
@@ -21,18 +21,18 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.text("a"),
+      find.text('a'),
       findsOneWidget,
     );
 
     expect(bloc.state.found, 0);
 
-    await tester.tap(find.text("a"));
+    await tester.tap(find.text('a'));
     await tester.pumpAndSettle();
 
     expect(bloc.state.found, 1);
 
-    await tester.tap(find.text("a"));
+    await tester.tap(find.text('a'));
     await tester.pumpAndSettle();
 
     expect(bloc.state.found, 0);

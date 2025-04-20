@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_bingo/src/bloc/game_bloc.dart';
 import 'package:play_bingo/src/bloc/game_event.dart';
 import 'package:play_bingo/src/bloc/game_state.dart';
-
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 const selectedCell = TextStyle(
   color: Colors.red,
@@ -41,9 +40,9 @@ class BingoBoard extends StatelessWidget {
                       ),
                     ],
                   ),
-                ))
+                ),)
             .toList(),
       );
-    });
+    },);
   }
 }

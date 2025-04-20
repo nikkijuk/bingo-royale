@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_bingo/src/bloc/game_bloc.dart';
 
-import 'bingo_board_cell.dart';
-import 'bingo_board_view.dart';
+import 'package:play_bingo/src/widget/bingo_board_view.dart';
 
 class BingoBoardPage extends StatelessWidget {
   const BingoBoardPage({
@@ -21,29 +20,29 @@ class BingoBoardPage extends StatelessWidget {
             BlocProvider<GameBloc>(
               create: (_) {
                 return GameBloc(labels: [
-                  "Flutter",
-                  "bingo",
-                  "challenge",
-                  "is", // 4
-                  "a",
-                  "structured",
-                  "learning",
-                  "experiment.", // 8
-                  "Get",
-                  "ready",
-                  "for",
-                  "new", // 12
-                  "skirlls.",
-                  "Never",
-                  "stop",
-                  "experimenting.", // 16
-                ], height: 4, width: 4);
+                  'Flutter',
+                  'bingo',
+                  'challenge',
+                  'is', // 4
+                  'a',
+                  'structured',
+                  'learning',
+                  'experiment.', // 8
+                  'Get',
+                  'ready',
+                  'for',
+                  'new', // 12
+                  'skirlls.',
+                  'Never',
+                  'stop',
+                  'experimenting.', // 16
+                ], height: 4, width: 4,);
               },
             ),
           ],
           child: const Center(
             child: BingoBoardView(),
           ),
-        ));
+        ),);
   }
 }
