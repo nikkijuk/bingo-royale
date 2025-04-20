@@ -21,9 +21,14 @@ class BingoBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GameBloc, GameState>(builder: (context, state) {
       final bloc = context.read<GameBloc>();
-      return GridView.count(
+      return Container(
+        width: 500,
+        height: 500,
+        padding: const EdgeInsets.all(10),
+        child:
+        GridView.count(
         crossAxisCount: state.width,
-        scrollDirection: Axis.horizontal,
+        scrollDirection: Axis.vertical,
         children: state
             .getCells()
             .map((cell) => InkWell(
@@ -42,6 +47,7 @@ class BingoBoard extends StatelessWidget {
                   ),
                 ),)
             .toList(),
+      )
       );
     },);
   }

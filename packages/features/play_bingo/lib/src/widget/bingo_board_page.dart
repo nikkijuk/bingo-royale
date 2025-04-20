@@ -32,7 +32,7 @@ class BingoBoardPage extends StatelessWidget {
                   'ready',
                   'for',
                   'new', // 12
-                  'skirlls.',
+                  'skills.',
                   'Never',
                   'stop',
                   'experimenting.', // 16
