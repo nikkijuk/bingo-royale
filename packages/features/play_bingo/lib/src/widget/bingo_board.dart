@@ -29,7 +29,7 @@ class BingoBoard extends StatelessWidget {
         GridView.count(
         crossAxisCount: state.width,
         children: state
-            .getCells()
+            .cells
             .map((cell) => InkWell(
                   onTap: cell.selected
                       ? () => bloc.add(Unselected(cell.label))

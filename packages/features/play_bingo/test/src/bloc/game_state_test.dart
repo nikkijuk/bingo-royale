@@ -18,8 +18,10 @@ final labels = [
 
 void main() {
   group('Game state tests', () {
+
     test('State without board can be instantiated', () {
       expect(const GameState(), isNotNull);
+
     });
 
     test('state with 3 x 3 board can be instantiated', () {
@@ -32,6 +34,9 @@ void main() {
       expect(state.width, 3);
       expect(state.height, 3);
       expect(state.found, 0);
+
+      final cells = state.cells;
+      expect(cells.length, 9);
 
       final selectedState = state.selectElement('r1c1');
 

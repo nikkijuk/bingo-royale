@@ -28,19 +28,19 @@ extension GameStateExtension on GameState {
   /// get number of elements selected
   int get found => selected.length;
 
+  /// get list of cells
+  List<Cell> get cells => elements
+      .map(
+        (element) =>
+            (label: element, selected: _isSelected(_findElementId(element))),
+      )
+      .toList();
+
   // shared method for finding element ID
   int _findElementId(String element) => elements.indexOf(element);
 
   /// is element selected
-  bool isSelected(int index) => selected.contains(index);
-
-  /// get list of cells
-  List<Cell> getCells() => elements
-      .map(
-        (element) =>
-            (label: element, selected: isSelected(_findElementId(element))),
-      )
-      .toList();
+  bool _isSelected(int index) => selected.contains(index);
 
   /// amount of rows which are fully selected
   int get foundRows =>
@@ -49,7 +49,7 @@ extension GameStateExtension on GameState {
   /// check if all elements in row are selected
   bool _checkRow(int row) {
     return List.generate(width, (int col) => row * width + col)
-        .every(isSelected);
+        .every(_isSelected);
   }
 
   /// amount of columns which are fully selected
@@ -59,7 +59,7 @@ extension GameStateExtension on GameState {
   /// check if all elements in column are selected
   bool _checkColumn(int col) {
     return List.generate(height, (int row) => row * height + col)
-        .every(isSelected);
+        .every(_isSelected);
   }
 
   /// amount of axes which are fully selected
@@ -69,7 +69,7 @@ extension GameStateExtension on GameState {
   /// check up-down axis
   bool _checkDownAxis() {
     return List.generate(height, (int pos) => pos * height + pos)
-        .every(isSelected);
+        .every(_isSelected);
   }
 
   /// check down-up axis
@@ -77,7 +77,7 @@ extension GameStateExtension on GameState {
     return List.generate(
       height,
       (int pos) => ((height - pos - 1) * height) + pos,
-    ).every(isSelected);
+    ).every(_isSelected);
   }
 
   /// create new state with selected element
