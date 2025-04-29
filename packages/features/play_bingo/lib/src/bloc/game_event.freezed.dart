@@ -57,6 +57,26 @@ class Started implements GameEvent {
 
 /// @nodoc
 
+class Finished implements GameEvent {
+  const Finished();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Finished);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'GameEvent.finished()';
+  }
+}
+
+/// @nodoc
+
 class Selected implements GameEvent {
   const Selected(this.element);
 
@@ -177,26 +197,6 @@ class _$UnselectedCopyWithImpl<$Res> implements $UnselectedCopyWith<$Res> {
           : element // ignore: cast_nullable_to_non_nullable
               as String,
     ));
-  }
-}
-
-/// @nodoc
-
-class Finished implements GameEvent {
-  const Finished();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Finished);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  String toString() {
-    return 'GameEvent.finished()';
   }
 }
 

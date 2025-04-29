@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// cell widget that contains inkwell
-/// inkwell is used to detect tap
+/// Bingo board cell renders a single cell of bingo board
+/// Call can be made to select or unselect cell
+/// Cell knows if it is currently selected or not
 class BingoBoardCell extends StatelessWidget {
   const BingoBoardCell({
     required this.label,
@@ -19,10 +20,17 @@ class BingoBoardCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // cell widget returns inkwell
+    // inkwell is used to detect tap
     return InkWell(
+
+      // tap is used to select or unselect cell
       onTap: isSelected
           ? () => onUnselect(label)
           : () => onSelect(label),
+
+      // container is used to set background color and render element as text
       child: Container(
         color: isSelected ? selectedBgColor : freeBgColor,
         alignment: Alignment.center,

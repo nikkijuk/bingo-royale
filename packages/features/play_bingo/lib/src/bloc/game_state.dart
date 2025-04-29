@@ -8,21 +8,33 @@ part 'game_state.g.dart';
 // TODO(jnikki): start time would allow scheduled bingos
 // TODO(jnikki): mutating element list would allow realtime changes / additions
 
+/// Type to describe current game state.
 @freezed
 abstract class GameState with _$GameState {
   const factory GameState({
+
+    /// Time when game is started
     DateTime? started, // nullable, set when game is started
+
+    /// Time when game is finished
     DateTime? finished, // nullable, set when game is finished
+
+    /// size of the board
     @Default(5) int size,
-    @Default({}) Set<int> selected, // set which is by default empty
-    @Default([]) List<String> elements, // list which is by default empty
+    
+    /// List of indexes of currently selected elements
+    @Default({}) Set<int> selected,
+    
+    /// list of elements which can be selected
+    @Default([]) List<String> elements,
   }) = _GameState;
 
+  /// create GameState from JSON
   factory GameState.fromJson(Map<String, Object?> json) =>
       _$GameStateFromJson(json);
 }
 
-// extension for convenience
+/// GameState extension for convenience
 extension GameStateExtension on GameState {
   /// get number of elements selected
   int get found => selected.length;
@@ -35,7 +47,7 @@ extension GameStateExtension on GameState {
       )
       .toList();
 
-  // shared method for finding element ID
+  /// shared method for finding element ID
   int _findElementId(String element) => elements.indexOf(element);
 
   /// is element selected
@@ -65,13 +77,13 @@ extension GameStateExtension on GameState {
   int get foundAxes =>
       [_checkDownAxis(), _checkUpAxis()].where((axis) => axis).length;
 
-  /// check up-down axis
+  /// check up-down axis (right-left)
   bool _checkDownAxis() {
     return List.generate(size, (int pos) => pos * size + pos)
         .every(_isSelected);
   }
 
-  /// check down-up axis
+  /// check down-up axis (right-left)
   bool _checkUpAxis() {
     return List.generate(
       size,
@@ -79,7 +91,7 @@ extension GameStateExtension on GameState {
     ).every(_isSelected);
   }
 
-  /// create new state with selected element
+  /// Create new state with selected element
   GameState selectElement(String element) {
     final elementId = _findElementId(element);
     final newSelection = {elementId, ...selected};
@@ -96,4 +108,5 @@ extension GameStateExtension on GameState {
   }
 }
 
+/// Type to describe attributes of single cell
 typedef Cell = ({String label, bool selected});
