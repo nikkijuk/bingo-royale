@@ -13,8 +13,7 @@ _GameState _$GameStateFromJson(Map<String, dynamic> json) => _GameState(
       finished: json['finished'] == null
           ? null
           : DateTime.parse(json['finished'] as String),
-      width: (json['width'] as num?)?.toInt() ?? 5,
-      height: (json['height'] as num?)?.toInt() ?? 5,
+      size: (json['size'] as num?)?.toInt() ?? 5,
       selected: (json['selected'] as List<dynamic>?)
               ?.map((e) => (e as num).toInt())
               .toSet() ??
@@ -29,8 +28,7 @@ Map<String, dynamic> _$GameStateToJson(_GameState instance) =>
     <String, dynamic>{
       'started': instance.started?.toIso8601String(),
       'finished': instance.finished?.toIso8601String(),
-      'width': instance.width,
-      'height': instance.height,
+      'size': instance.size,
       'selected': instance.selected.toList(),
       'elements': instance.elements,
     };

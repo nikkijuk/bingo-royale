@@ -20,16 +20,16 @@ class BingoBoardView extends StatelessWidget {
         final axes = state.foundAxes;
 
         return Scaffold(
-            appBar: AppBar(
-              title:
-                  Text('found $total, rows $rows, cols $columns, axes $axes'),
-            ),
-            body: Container(
-              width: 500,
-              height: 500,
-              padding: const EdgeInsets.all(10),
-              child: const BingoBoard(),
-            ));
+          appBar: AppBar(
+            title: Text('found $total, rows $rows, cols $columns, axes $axes'),
+          ),
+          body: Container(
+            width: 500,
+            height: 500,
+            padding: const EdgeInsets.all(10),
+            child: const BingoBoard(),
+          ),
+        );
       },
     );
   }

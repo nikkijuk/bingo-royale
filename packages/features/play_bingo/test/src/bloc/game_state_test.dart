@@ -25,14 +25,13 @@ void main() {
     });
 
     test('state with 3 x 3 board can be instantiated', () {
-      expect(GameState(elements: labels, width: 3, height: 3), isNotNull);
+      expect(GameState(elements: labels, size: 3), isNotNull);
     });
 
     test('state can be selected and unselected', () {
-      final state = GameState(elements: labels, width: 3, height: 3);
+      final state = GameState(elements: labels, size: 3);
 
-      expect(state.width, 3);
-      expect(state.height, 3);
+      expect(state.size, 3);
       expect(state.found, 0);
 
       final cells = state.cells;
@@ -48,10 +47,9 @@ void main() {
     });
 
     test('state know when row is fully selected', () {
-      final state = GameState(elements: labels, width: 3, height: 3);
+      final state = GameState(elements: labels, size: 3);
 
-      expect(state.width, 3);
-      expect(state.height, 3);
+      expect(state.size, 3);
       expect(state.found, 0);
 
       expect(state.foundRows, 0);
@@ -65,10 +63,9 @@ void main() {
     });
 
     test('state know when column is fully selected', () {
-      final state = GameState(elements: labels, width: 3, height: 3);
+      final state = GameState(elements: labels, size: 3);
 
-      expect(state.width, 3);
-      expect(state.height, 3);
+      expect(state.size, 3);
       expect(state.found, 0);
 
       expect(state.foundColumns, 0);
@@ -82,10 +79,9 @@ void main() {
     });
 
     test('state know when axis down-up is fully selected', () {
-      final state = GameState(elements: labels, width: 3, height: 3);
+      final state = GameState(elements: labels, size: 3);
 
-      expect(state.width, 3);
-      expect(state.height, 3);
+      expect(state.size, 3);
       expect(state.found, 0);
 
       expect(state.foundAxes, 0);
@@ -99,10 +95,9 @@ void main() {
     });
 
     test('state know when axis up-down is fully selected', () {
-      final state = GameState(elements: labels, width: 3, height: 3);
+      final state = GameState(elements: labels, size: 3);
 
-      expect(state.width, 3);
-      expect(state.height, 3);
+      expect(state.size, 3);
       expect(state.found, 0);
 
       expect(state.foundAxes, 0);

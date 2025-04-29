@@ -11,7 +11,7 @@ void main() {
     'GameBloc tests',
     () {
       test('initial state is correctly initialized', () {
-        expect(GameBloc(labels: elements).state.width, equals(5));
+        expect(GameBloc(labels: elements).state.size, equals(5));
       });
 
       blocTest<GameBloc, GameState>(

@@ -5,8 +5,8 @@ import 'package:play_bingo/src/bloc/game_event.dart';
 import 'package:play_bingo/src/bloc/game_state.dart';
 
 class GameBloc extends Bloc<GameEvent, GameState> {
-  GameBloc({required List<String> labels, int width = 5, int height = 5})
-      : super(GameState(height: height, width: width, elements: labels)) {
+  GameBloc({required List<String> labels, int size = 5})
+      : super(GameState(size: size, elements: labels)) {
     on<Started>(_onStarted);
     on<Finished>(_onFinished);
     on<Selected>(_onSelected);

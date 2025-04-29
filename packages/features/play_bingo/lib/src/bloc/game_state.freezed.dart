@@ -17,8 +17,7 @@ T _$identity<T>(T value) => value;
 mixin _$GameState implements DiagnosticableTreeMixin {
   DateTime? get started; // nullable, set when game is started
   DateTime? get finished; // nullable, set when game is finished
-  int get width;
-  int get height;
+  int get size;
   Set<int> get selected; // set which is by default empty
   List<String> get elements;
 
@@ -38,8 +37,7 @@ mixin _$GameState implements DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'GameState'))
       ..add(DiagnosticsProperty('started', started))
       ..add(DiagnosticsProperty('finished', finished))
-      ..add(DiagnosticsProperty('width', width))
-      ..add(DiagnosticsProperty('height', height))
+      ..add(DiagnosticsProperty('size', size))
       ..add(DiagnosticsProperty('selected', selected))
       ..add(DiagnosticsProperty('elements', elements));
   }
@@ -52,8 +50,7 @@ mixin _$GameState implements DiagnosticableTreeMixin {
             (identical(other.started, started) || other.started == started) &&
             (identical(other.finished, finished) ||
                 other.finished == finished) &&
-            (identical(other.width, width) || other.width == width) &&
-            (identical(other.height, height) || other.height == height) &&
+            (identical(other.size, size) || other.size == size) &&
             const DeepCollectionEquality().equals(other.selected, selected) &&
             const DeepCollectionEquality().equals(other.elements, elements));
   }
@@ -64,14 +61,13 @@ mixin _$GameState implements DiagnosticableTreeMixin {
       runtimeType,
       started,
       finished,
-      width,
-      height,
+      size,
       const DeepCollectionEquality().hash(selected),
       const DeepCollectionEquality().hash(elements));
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GameState(started: $started, finished: $finished, width: $width, height: $height, selected: $selected, elements: $elements)';
+    return 'GameState(started: $started, finished: $finished, size: $size, selected: $selected, elements: $elements)';
   }
 }
 
@@ -83,8 +79,7 @@ abstract mixin class $GameStateCopyWith<$Res> {
   $Res call(
       {DateTime? started,
       DateTime? finished,
-      int width,
-      int height,
+      int size,
       Set<int> selected,
       List<String> elements});
 }
@@ -103,8 +98,7 @@ class _$GameStateCopyWithImpl<$Res> implements $GameStateCopyWith<$Res> {
   $Res call({
     Object? started = freezed,
     Object? finished = freezed,
-    Object? width = null,
-    Object? height = null,
+    Object? size = null,
     Object? selected = null,
     Object? elements = null,
   }) {
@@ -117,13 +111,9 @@ class _$GameStateCopyWithImpl<$Res> implements $GameStateCopyWith<$Res> {
           ? _self.finished
           : finished // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      width: null == width
-          ? _self.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int,
-      height: null == height
-          ? _self.height
-          : height // ignore: cast_nullable_to_non_nullable
+      size: null == size
+          ? _self.size
+          : size // ignore: cast_nullable_to_non_nullable
               as int,
       selected: null == selected
           ? _self.selected
@@ -143,8 +133,7 @@ class _GameState with DiagnosticableTreeMixin implements GameState {
   const _GameState(
       {this.started,
       this.finished,
-      this.width = 5,
-      this.height = 5,
+      this.size = 5,
       final Set<int> selected = const {},
       final List<String> elements = const []})
       : _selected = selected,
@@ -160,10 +149,7 @@ class _GameState with DiagnosticableTreeMixin implements GameState {
 // nullable, set when game is finished
   @override
   @JsonKey()
-  final int width;
-  @override
-  @JsonKey()
-  final int height;
+  final int size;
   final Set<int> _selected;
   @override
   @JsonKey()
@@ -205,8 +191,7 @@ class _GameState with DiagnosticableTreeMixin implements GameState {
       ..add(DiagnosticsProperty('type', 'GameState'))
       ..add(DiagnosticsProperty('started', started))
       ..add(DiagnosticsProperty('finished', finished))
-      ..add(DiagnosticsProperty('width', width))
-      ..add(DiagnosticsProperty('height', height))
+      ..add(DiagnosticsProperty('size', size))
       ..add(DiagnosticsProperty('selected', selected))
       ..add(DiagnosticsProperty('elements', elements));
   }
@@ -219,8 +204,7 @@ class _GameState with DiagnosticableTreeMixin implements GameState {
             (identical(other.started, started) || other.started == started) &&
             (identical(other.finished, finished) ||
                 other.finished == finished) &&
-            (identical(other.width, width) || other.width == width) &&
-            (identical(other.height, height) || other.height == height) &&
+            (identical(other.size, size) || other.size == size) &&
             const DeepCollectionEquality().equals(other._selected, _selected) &&
             const DeepCollectionEquality().equals(other._elements, _elements));
   }
@@ -231,14 +215,13 @@ class _GameState with DiagnosticableTreeMixin implements GameState {
       runtimeType,
       started,
       finished,
-      width,
-      height,
+      size,
       const DeepCollectionEquality().hash(_selected),
       const DeepCollectionEquality().hash(_elements));
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GameState(started: $started, finished: $finished, width: $width, height: $height, selected: $selected, elements: $elements)';
+    return 'GameState(started: $started, finished: $finished, size: $size, selected: $selected, elements: $elements)';
   }
 }
 
@@ -253,8 +236,7 @@ abstract mixin class _$GameStateCopyWith<$Res>
   $Res call(
       {DateTime? started,
       DateTime? finished,
-      int width,
-      int height,
+      int size,
       Set<int> selected,
       List<String> elements});
 }
@@ -273,8 +255,7 @@ class __$GameStateCopyWithImpl<$Res> implements _$GameStateCopyWith<$Res> {
   $Res call({
     Object? started = freezed,
     Object? finished = freezed,
-    Object? width = null,
-    Object? height = null,
+    Object? size = null,
     Object? selected = null,
     Object? elements = null,
   }) {
@@ -287,13 +268,9 @@ class __$GameStateCopyWithImpl<$Res> implements _$GameStateCopyWith<$Res> {
           ? _self.finished
           : finished // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      width: null == width
-          ? _self.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int,
-      height: null == height
-          ? _self.height
-          : height // ignore: cast_nullable_to_non_nullable
+      size: null == size
+          ? _self.size
+          : size // ignore: cast_nullable_to_non_nullable
               as int,
       selected: null == selected
           ? _self._selected

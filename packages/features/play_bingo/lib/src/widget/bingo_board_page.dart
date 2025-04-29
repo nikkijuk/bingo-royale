@@ -12,14 +12,15 @@ class BingoBoardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter Bingo Challenge'),
-        ),
-        body: MultiBlocProvider(
-          providers: [
-            BlocProvider<GameBloc>(
-              create: (_) {
-                return GameBloc(labels: [
+      appBar: AppBar(
+        title: const Text('Flutter Bingo Challenge'),
+      ),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider<GameBloc>(
+            create: (_) {
+              return GameBloc(
+                labels: [
                   'Flutter',
                   'bingo',
                   'challenge',
@@ -36,13 +37,16 @@ class BingoBoardPage extends StatelessWidget {
                   'Never',
                   'stop',
                   'experimenting.', // 16
-                ], height: 4, width: 4,);
-              },
-            ),
-          ],
-          child: const Center(
-            child: BingoBoardView(),
+                ],
+                size: 4,
+              );
+            },
           ),
-        ),);
+        ],
+        child: const Center(
+          child: BingoBoardView(),
+        ),
+      ),
+    );
   }
 }

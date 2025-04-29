@@ -13,8 +13,7 @@ abstract class GameState with _$GameState {
   const factory GameState({
     DateTime? started, // nullable, set when game is started
     DateTime? finished, // nullable, set when game is finished
-    @Default(5) int width,
-    @Default(5) int height,
+    @Default(5) int size,
     @Default({}) Set<int> selected, // set which is by default empty
     @Default([]) List<String> elements, // list which is by default empty
   }) = _GameState;
@@ -44,21 +43,21 @@ extension GameStateExtension on GameState {
 
   /// amount of rows which are fully selected
   int get foundRows =>
-      List.generate(height, (int row) => row).where(_checkRow).length;
+      List.generate(size, (int row) => row).where(_checkRow).length;
 
   /// check if all elements in row are selected
   bool _checkRow(int row) {
-    return List.generate(width, (int col) => row * width + col)
+    return List.generate(size, (int col) => row * size + col)
         .every(_isSelected);
   }
 
   /// amount of columns which are fully selected
   int get foundColumns =>
-      List.generate(width, (int col) => col).where(_checkColumn).length;
+      List.generate(size, (int col) => col).where(_checkColumn).length;
 
   /// check if all elements in column are selected
   bool _checkColumn(int col) {
-    return List.generate(height, (int row) => row * height + col)
+    return List.generate(size, (int row) => row * size + col)
         .every(_isSelected);
   }
 
@@ -68,15 +67,15 @@ extension GameStateExtension on GameState {
 
   /// check up-down axis
   bool _checkDownAxis() {
-    return List.generate(height, (int pos) => pos * height + pos)
+    return List.generate(size, (int pos) => pos * size + pos)
         .every(_isSelected);
   }
 
   /// check down-up axis
   bool _checkUpAxis() {
     return List.generate(
-      height,
-      (int pos) => ((height - pos - 1) * height) + pos,
+      size,
+      (int pos) => ((size - pos - 1) * size) + pos,
     ).every(_isSelected);
   }
 

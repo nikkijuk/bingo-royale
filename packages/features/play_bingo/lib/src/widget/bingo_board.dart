@@ -17,7 +17,7 @@ class BingoBoard extends StatelessWidget {
         final bloc = context.read<GameBloc>();
 
         return GridView.count(
-          crossAxisCount: state.width,
+          crossAxisCount: state.size,
           children: state.cells
               .map(
                 (cell) => BingoBoardCell(
