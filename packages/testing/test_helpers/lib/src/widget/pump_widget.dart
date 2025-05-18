@@ -58,19 +58,18 @@ extension PumpSingleWidget on WidgetTester {
     List<LocalizationsDelegate<dynamic>> delegates, {
     String locale = 'de',
   }) {
-
     final app = MaterialApp(
-        home: Localizations(
-          delegates: [
-            // add here all localizations delegates needed in tests
-            ...delegates,
-          ],
-          // supported locales: de is default which can be overridden
-          locale: Locale(locale),
+      home: Localizations(
+        delegates: [
+          // add here all localizations delegates needed in tests
+          ...delegates,
+        ],
+        // supported locales: de is default which can be overridden
+        locale: Locale(locale),
 
-          // widget under test
-          child: widget,
-        ),
+        // widget under test
+        child: widget,
+      ),
     );
 
     return app;

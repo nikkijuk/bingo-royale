@@ -13,9 +13,8 @@ void main() {
         elementCounter++;
       });
 
-
       //wait for everything to yield
-      await Future.delayed(const Duration(seconds: 1), (){});
+      await Future.delayed(const Duration(seconds: 1), () {});
 
       expect(() async => stream.first, throwsException);
       expect(elementCounter, 0);
@@ -30,7 +29,7 @@ void main() {
       });
 
       //wait for everything to yield
-      await Future.delayed(const Duration(seconds: 1), (){});
+      await Future.delayed(const Duration(seconds: 1), () {});
 
       expect(await stream.first, nonEmptyObjectsToYield.first);
       expect(elementCounter, nonEmptyObjectsToYield.length);

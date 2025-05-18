@@ -10,6 +10,5 @@ void main() {
     test('length of random string', () {
       expect(createRandomString(1).length, 1);
     });
-
   });
 }

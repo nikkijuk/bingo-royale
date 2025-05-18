@@ -12,13 +12,10 @@ class BingoBoardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // BlocBuilder is used to listen to the state changes of the game.
     return BlocBuilder<GameBloc, GameState>(
-
       // builder is a callback function that is called when the state changes.
       builder: (context, state) {
-
         // Get the current state of the game.
         final state = context.read<GameBloc>().state;
 

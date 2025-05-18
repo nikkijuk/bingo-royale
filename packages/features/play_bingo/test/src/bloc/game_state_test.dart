@@ -6,11 +6,9 @@ final labels = [
   'r1c1',
   'r1c2',
   'r1c3',
-
   'r2c1',
   'r2c2',
   'r2c3',
-
   'r3c1',
   'r3c2',
   'r3c3',
@@ -18,10 +16,8 @@ final labels = [
 
 void main() {
   group('Game state tests', () {
-
     test('State without board can be instantiated', () {
       expect(const GameState(), isNotNull);
-
     });
 
     test('state with 3 x 3 board can be instantiated', () {
@@ -59,7 +55,6 @@ void main() {
       final selectedState3 = selectedState2.selectElement('r1c3');
 
       expect(selectedState3.foundRows, 1);
-
     });
 
     test('state know when column is fully selected', () {
@@ -75,7 +70,6 @@ void main() {
       final selectedState3 = selectedState2.selectElement('r3c1');
 
       expect(selectedState3.foundColumns, 1);
-
     });
 
     test('state know when axis down-up is fully selected', () {
@@ -91,7 +85,6 @@ void main() {
       final selectedState3 = selectedState2.selectElement('r1c3');
 
       expect(selectedState3.foundAxes, 1);
-
     });
 
     test('state know when axis up-down is fully selected', () {
@@ -107,9 +100,6 @@ void main() {
       final selectedState3 = selectedState2.selectElement('r3c3');
 
       expect(selectedState3.foundAxes, 1);
-
     });
-
-
   });
 }

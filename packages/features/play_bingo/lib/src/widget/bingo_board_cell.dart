@@ -20,15 +20,11 @@ class BingoBoardCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // cell widget returns inkwell
     // inkwell is used to detect tap
     return InkWell(
-
       // tap is used to select or unselect cell
-      onTap: isSelected
-          ? () => onUnselect(label)
-          : () => onSelect(label),
+      onTap: isSelected ? () => onUnselect(label) : () => onSelect(label),
 
       // container is used to set background color and render element as text
       child: Container(

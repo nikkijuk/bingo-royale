@@ -7,7 +7,6 @@ part 'game_event.freezed.dart';
 /// Events are immutable.
 @freezed
 sealed class GameEvent with _$GameEvent {
-
   /// The game has started.
   const factory GameEvent.started() = Started;
 
@@ -19,5 +18,4 @@ sealed class GameEvent with _$GameEvent {
 
   /// An element has been unselected.
   const factory GameEvent.unselected(String element) = Unselected;
-
 }

@@ -13,58 +13,64 @@ const mailSuccessPath = 'assets/icons/sendReport/mail_success.png';
 void noOperation() => {};
 
 void main() {
-  testWidgets('BingoBoardView shows success screen', (tester) async {
+  testWidgets(
+    'BingoBoardView shows success screen',
+    (tester) async {
+      final bloc = GameBloc(labels: ['a', 'b', 'c']);
+      final blocProvider = BlocProvider<GameBloc>(create: (_) => bloc);
+      const localizations = PlayBingoLocalizations.localizationsDelegates;
 
-    final bloc = GameBloc(labels: ['a','b','c']);
-    final blocProvider = BlocProvider<GameBloc>(create: (_) => bloc);
-    const localizations = PlayBingoLocalizations.localizationsDelegates;
+      await tester.pumpSingleWidgetWithBlocProvider(
+        const BingoBoard(),
+        localizations,
+        blocProvider,
+        //PlayBingoLocalizations.localizationsDelegates,
+      );
 
-    await tester.pumpSingleWidgetWithBlocProvider(
-      const BingoBoard(),
-      localizations,
-      blocProvider,
-      //PlayBingoLocalizations.localizationsDelegates,
-    );
+      await tester.pumpAndSettle();
 
-    await tester.pumpAndSettle();
+      expect(
+        find.byKey(
+          const Key(
+            'ContactFormSentView_info_header',
+          ),
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(
+          const Key(
+            'ContactFormSentView_info_detail',
+          ),
+        ),
+        findsOneWidget,
+      );
 
-    expect(
-      find.byKey(const Key(
-        'ContactFormSentView_info_header',
-      ),),
-      findsOneWidget,
-    );
-    expect(
-      find.byKey(const Key(
-        'ContactFormSentView_info_detail',
-      ),),
-      findsOneWidget,
-    );
+      expect(
+        find.image(
+          const AssetImage(mailSuccessPath),
+        ),
+        findsOneWidget,
+      );
 
-    expect(
-      find.image(
-        const AssetImage(mailSuccessPath),
-      ),
-      findsOneWidget,
-    );
+      expect(
+        find.byKey(const Key('ContactFormSentView_finishedButton')),
+        findsOneWidget,
+      );
 
-    expect(
-      find.byKey(const Key('ContactFormSentView_finishedButton')),
-      findsOneWidget,
-    );
+      expect(
+        find.byKey(const Key('ContactFormSentView_restart_icon')),
+        findsOneWidget,
+      );
 
-    expect(
-      find.byKey(const Key('ContactFormSentView_restart_icon')),
-      findsOneWidget,
-    );
+      expect(
+        find.byKey(const Key('ContactFormSentView_new_query')),
+        findsOneWidget,
+      );
 
-    expect(
-      find.byKey(const Key('ContactFormSentView_new_query')),
-      findsOneWidget,
-    );
-
-    await tester.tap(find.byType(ElevatedButton));
-    await tester.pumpAndSettle();
-
-  }, skip: true,);
+      await tester.tap(find.byType(ElevatedButton));
+      await tester.pumpAndSettle();
+    },
+    skip: true,
+  );
 }

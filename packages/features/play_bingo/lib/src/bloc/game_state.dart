@@ -12,7 +12,6 @@ part 'game_state.g.dart';
 @freezed
 abstract class GameState with _$GameState {
   const factory GameState({
-
     /// Time when game is started
     DateTime? started, // nullable, set when game is started
 
@@ -21,10 +20,10 @@ abstract class GameState with _$GameState {
 
     /// size of the board
     @Default(5) int size,
-    
+
     /// List of indexes of currently selected elements
     @Default({}) Set<int> selected,
-    
+
     /// list of elements which can be selected
     @Default([]) List<String> elements,
   }) = _GameState;
