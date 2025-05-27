@@ -45,10 +45,10 @@ class BingoBoardCell extends StatelessWidget {
 typedef PressCell = void Function(String);
 
 /// Colors for bingo board
-const selectedBgColor = Colors.yellow;
+const MaterialColor selectedBgColor = Colors.yellow;
 
 /// Colors for bingo board
-const freeBgColor = Colors.white;
+const Color freeBgColor = Colors.white;
 
 /// Text style for selected cell
 const selectedCell = TextStyle(

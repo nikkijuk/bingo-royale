@@ -20,6 +20,7 @@ jobs:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
     with:
       min_coverage: 80
+      flutter_version: 3.32.0
       flutter_channel: stable
       coverage_excludes: "*.g.dart *.freezed.dart" # defaults to "" (none)
       working_directory: apps/simplebingo # defaults to "." (the top-level directory)

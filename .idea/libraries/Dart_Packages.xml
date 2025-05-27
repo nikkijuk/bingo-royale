@@ -110,7 +110,7 @@
         <entry key="built_value">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/built_value-8.9.5/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/built_value-8.10.0/lib" />
             </list>
           </value>
         </entry>
@@ -693,7 +693,6 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/very_good_analysis-8.0.0/lib" />
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/very_good_analysis-7.0.0/lib" />
             </list>
           </value>
         </entry>
@@ -771,7 +770,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/build_runner-2.4.15/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/build_runner_core-8.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/built_collection-5.1.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/built_value-8.9.5/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/built_value-8.10.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/characters-1.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/charcode-1.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/checked_yaml-2.0.3/lib" />
@@ -851,7 +850,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/timing-1.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/typed_data-1.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/vector_math-2.1.4/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/very_good_analysis-7.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/very_good_analysis-8.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/vm_service-15.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/watcher-1.1.1/lib" />
