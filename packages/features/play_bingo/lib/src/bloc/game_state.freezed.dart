@@ -48,8 +48,7 @@ mixin _$GameState implements DiagnosticableTreeMixin {
         (other.runtimeType == runtimeType &&
             other is GameState &&
             (identical(other.started, started) || other.started == started) &&
-            (identical(other.finished, finished) ||
-                other.finished == finished) &&
+            (identical(other.finished, finished) || other.finished == finished) &&
             (identical(other.size, size) || other.size == size) &&
             const DeepCollectionEquality().equals(other.selected, selected) &&
             const DeepCollectionEquality().equals(other.elements, elements));
@@ -57,13 +56,8 @@ mixin _$GameState implements DiagnosticableTreeMixin {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      started,
-      finished,
-      size,
-      const DeepCollectionEquality().hash(selected),
-      const DeepCollectionEquality().hash(elements));
+  int get hashCode => Object.hash(runtimeType, started, finished, size,
+      const DeepCollectionEquality().hash(selected), const DeepCollectionEquality().hash(elements));
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -77,11 +71,7 @@ abstract mixin class $GameStateCopyWith<$Res> {
       _$GameStateCopyWithImpl;
   @useResult
   $Res call(
-      {DateTime? started,
-      DateTime? finished,
-      int size,
-      Set<int> selected,
-      List<String> elements});
+      {DateTime? started, DateTime? finished, int size, Set<int> selected, List<String> elements});
 }
 
 /// @nodoc
@@ -138,8 +128,7 @@ class _GameState with DiagnosticableTreeMixin implements GameState {
       final List<String> elements = const []})
       : _selected = selected,
         _elements = elements;
-  factory _GameState.fromJson(Map<String, dynamic> json) =>
-      _$GameStateFromJson(json);
+  factory _GameState.fromJson(Map<String, dynamic> json) => _$GameStateFromJson(json);
 
   @override
   final DateTime? started;
@@ -202,8 +191,7 @@ class _GameState with DiagnosticableTreeMixin implements GameState {
         (other.runtimeType == runtimeType &&
             other is _GameState &&
             (identical(other.started, started) || other.started == started) &&
-            (identical(other.finished, finished) ||
-                other.finished == finished) &&
+            (identical(other.finished, finished) || other.finished == finished) &&
             (identical(other.size, size) || other.size == size) &&
             const DeepCollectionEquality().equals(other._selected, _selected) &&
             const DeepCollectionEquality().equals(other._elements, _elements));
@@ -226,19 +214,13 @@ class _GameState with DiagnosticableTreeMixin implements GameState {
 }
 
 /// @nodoc
-abstract mixin class _$GameStateCopyWith<$Res>
-    implements $GameStateCopyWith<$Res> {
-  factory _$GameStateCopyWith(
-          _GameState value, $Res Function(_GameState) _then) =
+abstract mixin class _$GameStateCopyWith<$Res> implements $GameStateCopyWith<$Res> {
+  factory _$GameStateCopyWith(_GameState value, $Res Function(_GameState) _then) =
       __$GameStateCopyWithImpl;
   @override
   @useResult
   $Res call(
-      {DateTime? started,
-      DateTime? finished,
-      int size,
-      Set<int> selected,
-      List<String> elements});
+      {DateTime? started, DateTime? finished, int size, Set<int> selected, List<String> elements});
 }
 
 /// @nodoc
