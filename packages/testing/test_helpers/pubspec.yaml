@@ -14,7 +14,7 @@ dependencies:
   flutter_bloc: ^9.1.0
   flutter_localizations:
     sdk: flutter
-  flutter_markdown: ^0.6.19
+  flutter_markdown: ^0.7.7+1
   # Note: flutter_test is used in lib, so it is not a dev_dependency
   flutter_test:
     sdk: flutter
@@ -25,4 +25,4 @@ dev_dependencies:
   bloc: ^9.0.0
   build_runner: ^2.4.9
   test: any
-  very_good_analysis: ^7.0.0
+  very_good_analysis: ^8.0.0
