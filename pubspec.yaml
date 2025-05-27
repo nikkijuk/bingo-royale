@@ -10,7 +10,7 @@ environment:
 # dart pub global activate melos <version>
 
 dependencies:
-  very_good_analysis: ^7.0.0
+  very_good_analysis: ^8.0.0
 
 dev_dependencies:
   melos: ^6.0.0
