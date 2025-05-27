@@ -26,3 +26,10 @@ dev_dependencies:
   build_runner: ^2.4.9
   test: any
   very_good_analysis: ^8.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Handles localization tasks.
+  # This field can appear as a subfield of flutter and material.
+  generate: true

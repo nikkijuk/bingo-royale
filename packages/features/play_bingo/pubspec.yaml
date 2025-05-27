@@ -31,3 +31,10 @@ dev_dependencies:
   test_helpers:
     path: ../../testing/test_helpers
   very_good_analysis: ^8.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Handles localization tasks.
+  # This field can appear as a subfield of flutter and material.
+  generate: true
