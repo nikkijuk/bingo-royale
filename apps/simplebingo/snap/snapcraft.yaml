@@ -1,7 +1,7 @@
 name: bingo-app
 version: 0.1.0
 summary: bingo App
-Description: Bingo App for the Bingo Royale project
+description: Bingo App
 
 confinement: strict
 base: core22
