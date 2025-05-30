@@ -336,10 +336,10 @@ scripts:
       scope: "*firstapp*"
 
   # not tested
-  run:linux:dev:
+  build:linux:dev:
     run: |
       melos exec -c 6 --fail-fast -- \
-        "flutter run -d linux --no-pub --target lib/main_development.dart"
+        "flutter build linux --no-pub --target lib/main_development.dart"
     description: |
       Build a specific app for linux.
        - Requires `flutter channel stable`.
