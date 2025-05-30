@@ -29,4 +29,4 @@ flutter:
 
   # Handles localization tasks.
   # This field can appear as a subfield of flutter and material.
-  generate: false
+  generate: true
