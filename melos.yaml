@@ -335,23 +335,23 @@ scripts:
         - macos
       scope: "*firstapp*"
 
-  build:linux:
+  # not tested
+  run:linux:dev:
     run: |
       melos exec -c 6 --fail-fast -- \
-        "flutter build linux --no-pub"
+        "flutter run -d linux --no-pub --target lib/main_development.dart"
     description: |
-      Build a specific app for web.
+      Build a specific app for linux.
        - Requires `flutter channel stable`.
        - Requires `flutter config --enable-linux-desktop` set.
     packageFilters:
       dirExists:
         - linux
-      scope: "*firstapp*"
 
-  build:windows:
+  build:windows:dev:
     run: |
       melos exec -c 6 --fail-fast -- \
-        "flutter build windows --no-pub"
+        "flutter build windows --no-pub --target lib/main_development.dart"
     description: |
       Build a specific app for windows.
        - Requires `flutter channel stable`.
@@ -359,7 +359,6 @@ scripts:
     packageFilters:
       dirExists:
         - windows
-      scope: "*firstapp*"
 
   build:web:
     run: |
