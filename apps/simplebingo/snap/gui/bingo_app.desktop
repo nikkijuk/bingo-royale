@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Bingo App
+Comment=Bingo App for bingo Royale
+Exec=bingo-app
+Icon=${SNAP}/meta/gui/bingo-app.png # Replace name with your app name.
+Terminal=false
+Type=Application
+Categories=Education; # Adjust accordingly your snap category.

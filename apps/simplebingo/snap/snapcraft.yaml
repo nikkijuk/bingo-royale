@@ -1,0 +1,28 @@
+name: bingo-app
+version: 0.1.0
+summary: bingo App
+Description: Bingo App for the Bingo Royale project
+
+confinement: strict
+base: core22
+grade: stable
+
+slots:
+  dbus-bingo-app: # adjust accordingly to your app name
+    interface: dbus
+    bus: session
+    name: de.bingo_royale.bingo_app # adjust accordingly to your app name and
+
+apps:
+  bingo-app:
+    command: bingo_app
+    extensions: [gnome] # gnome includes the libraries required by flutter
+    plugs:
+      - network
+    slots:
+      - dbus-bingo-app
+parts:
+  bingo-app:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main_development.dart # The main entry-point file of the application

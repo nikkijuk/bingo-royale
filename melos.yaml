@@ -418,3 +418,15 @@ scripts:
     exec:
       concurrency: 1
     description: scan for licenses
+
+  # not tested
+  snap:lxd:
+    # use the LXD container backend:
+    run: snapcraft --use-lxd
+    description: |
+      Build a specific app for linux.
+       - Requires snapcraft installed.
+       - Requires lxd installed and configured.
+    packageFilters:
+      dirExists:
+        - linux
