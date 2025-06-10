@@ -30,7 +30,7 @@ dev_dependencies:
   test: any
   test_helpers:
     path: ../../testing/test_helpers
-  very_good_analysis: ^8.0.0
+  very_good_analysis: ^9.0.0
 
 flutter:
   uses-material-design: true
