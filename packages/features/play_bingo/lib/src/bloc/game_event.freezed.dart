@@ -17,8 +17,7 @@ T _$identity<T>(T value) => value;
 mixin _$GameEvent {
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is GameEvent);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is GameEvent);
   }
 
   @override
@@ -42,8 +41,7 @@ class Started implements GameEvent {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Started);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is Started);
   }
 
   @override
@@ -62,8 +60,7 @@ class Finished implements GameEvent {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Finished);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is Finished);
   }
 
   @override
@@ -86,8 +83,7 @@ class Selected implements GameEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  $SelectedCopyWith<Selected> get copyWith =>
-      _$SelectedCopyWithImpl<Selected>(this, _$identity);
+  $SelectedCopyWith<Selected> get copyWith => _$SelectedCopyWithImpl<Selected>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
@@ -107,10 +103,8 @@ class Selected implements GameEvent {
 }
 
 /// @nodoc
-abstract mixin class $SelectedCopyWith<$Res>
-    implements $GameEventCopyWith<$Res> {
-  factory $SelectedCopyWith(Selected value, $Res Function(Selected) _then) =
-      _$SelectedCopyWithImpl;
+abstract mixin class $SelectedCopyWith<$Res> implements $GameEventCopyWith<$Res> {
+  factory $SelectedCopyWith(Selected value, $Res Function(Selected) _then) = _$SelectedCopyWithImpl;
   @useResult
   $Res call({String element});
 }
@@ -169,10 +163,8 @@ class Unselected implements GameEvent {
 }
 
 /// @nodoc
-abstract mixin class $UnselectedCopyWith<$Res>
-    implements $GameEventCopyWith<$Res> {
-  factory $UnselectedCopyWith(
-          Unselected value, $Res Function(Unselected) _then) =
+abstract mixin class $UnselectedCopyWith<$Res> implements $GameEventCopyWith<$Res> {
+  factory $UnselectedCopyWith(Unselected value, $Res Function(Unselected) _then) =
       _$UnselectedCopyWithImpl;
   @useResult
   $Res call({String element});

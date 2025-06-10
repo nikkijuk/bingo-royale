@@ -69,8 +69,7 @@ abstract class TestHelpersLocalizations {
   final String localeName;
 
   static TestHelpersLocalizations of(BuildContext context) {
-    return Localizations.of<TestHelpersLocalizations>(
-        context, TestHelpersLocalizations)!;
+    return Localizations.of<TestHelpersLocalizations>(context, TestHelpersLocalizations)!;
   }
 
   static const LocalizationsDelegate<TestHelpersLocalizations> delegate =
@@ -95,25 +94,19 @@ abstract class TestHelpersLocalizations {
   ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('de'),
-    Locale('en')
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('de'), Locale('en')];
 }
 
-class _TestHelpersLocalizationsDelegate
-    extends LocalizationsDelegate<TestHelpersLocalizations> {
+class _TestHelpersLocalizationsDelegate extends LocalizationsDelegate<TestHelpersLocalizations> {
   const _TestHelpersLocalizationsDelegate();
 
   @override
   Future<TestHelpersLocalizations> load(Locale locale) {
-    return SynchronousFuture<TestHelpersLocalizations>(
-        lookupTestHelpersLocalizations(locale));
+    return SynchronousFuture<TestHelpersLocalizations>(lookupTestHelpersLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['de', 'en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['de', 'en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_TestHelpersLocalizationsDelegate old) => false;

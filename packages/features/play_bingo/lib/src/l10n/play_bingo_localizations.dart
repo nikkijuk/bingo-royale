@@ -69,8 +69,7 @@ abstract class PlayBingoLocalizations {
   final String localeName;
 
   static PlayBingoLocalizations of(BuildContext context) {
-    return Localizations.of<PlayBingoLocalizations>(
-        context, PlayBingoLocalizations)!;
+    return Localizations.of<PlayBingoLocalizations>(context, PlayBingoLocalizations)!;
   }
 
   static const LocalizationsDelegate<PlayBingoLocalizations> delegate =
@@ -95,10 +94,7 @@ abstract class PlayBingoLocalizations {
   ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('de'),
-    Locale('en')
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('de'), Locale('en')];
 
   /// No description provided for @contactFormTitle.
   ///
@@ -197,19 +193,16 @@ abstract class PlayBingoLocalizations {
   String get failure;
 }
 
-class _PlayBingoLocalizationsDelegate
-    extends LocalizationsDelegate<PlayBingoLocalizations> {
+class _PlayBingoLocalizationsDelegate extends LocalizationsDelegate<PlayBingoLocalizations> {
   const _PlayBingoLocalizationsDelegate();
 
   @override
   Future<PlayBingoLocalizations> load(Locale locale) {
-    return SynchronousFuture<PlayBingoLocalizations>(
-        lookupPlayBingoLocalizations(locale));
+    return SynchronousFuture<PlayBingoLocalizations>(lookupPlayBingoLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['de', 'en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['de', 'en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_PlayBingoLocalizationsDelegate old) => false;

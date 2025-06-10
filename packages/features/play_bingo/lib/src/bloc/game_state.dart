@@ -29,8 +29,7 @@ abstract class GameState with _$GameState {
   }) = _GameState;
 
   /// create GameState from JSON
-  factory GameState.fromJson(Map<String, Object?> json) =>
-      _$GameStateFromJson(json);
+  factory GameState.fromJson(Map<String, Object?> json) => _$GameStateFromJson(json);
 }
 
 /// GameState extension for convenience
@@ -41,8 +40,7 @@ extension GameStateExtension on GameState {
   /// get list of cells
   List<Cell> get cells => elements
       .map(
-        (element) =>
-            (label: element, selected: _isSelected(_findElementId(element))),
+        (element) => (label: element, selected: _isSelected(_findElementId(element))),
       )
       .toList();
 
@@ -53,33 +51,27 @@ extension GameStateExtension on GameState {
   bool _isSelected(int index) => selected.contains(index);
 
   /// amount of rows which are fully selected
-  int get foundRows =>
-      List.generate(size, (int row) => row).where(_checkRow).length;
+  int get foundRows => List.generate(size, (int row) => row).where(_checkRow).length;
 
   /// check if all elements in row are selected
   bool _checkRow(int row) {
-    return List.generate(size, (int col) => row * size + col)
-        .every(_isSelected);
+    return List.generate(size, (int col) => row * size + col).every(_isSelected);
   }
 
   /// amount of columns which are fully selected
-  int get foundColumns =>
-      List.generate(size, (int col) => col).where(_checkColumn).length;
+  int get foundColumns => List.generate(size, (int col) => col).where(_checkColumn).length;
 
   /// check if all elements in column are selected
   bool _checkColumn(int col) {
-    return List.generate(size, (int row) => row * size + col)
-        .every(_isSelected);
+    return List.generate(size, (int row) => row * size + col).every(_isSelected);
   }
 
   /// amount of axes which are fully selected
-  int get foundAxes =>
-      [_checkDownAxis(), _checkUpAxis()].where((axis) => axis).length;
+  int get foundAxes => [_checkDownAxis(), _checkUpAxis()].where((axis) => axis).length;
 
   /// check up-down axis (right-left)
   bool _checkDownAxis() {
-    return List.generate(size, (int pos) => pos * size + pos)
-        .every(_isSelected);
+    return List.generate(size, (int pos) => pos * size + pos).every(_isSelected);
   }
 
   /// check down-up axis (right-left)

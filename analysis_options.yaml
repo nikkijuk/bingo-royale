@@ -6,5 +6,8 @@ linter:
   rules:
     public_member_api_docs: false
 
+    # currently using 100 chars per line
+    lines_longer_than_80_chars: false
+
 formatter:
-  page_width: 80
+  page_width: 100

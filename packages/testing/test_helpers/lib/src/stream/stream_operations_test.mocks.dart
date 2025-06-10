@@ -31,8 +31,7 @@ class _FakeFuture_0<T1> extends _i1.SmartFake implements _i2.Future<T1> {
         );
 }
 
-class _FakeStreamSubscription_1<T1> extends _i1.SmartFake
-    implements _i2.StreamSubscription<T1> {
+class _FakeStreamSubscription_1<T1> extends _i1.SmartFake implements _i2.StreamSubscription<T1> {
   _FakeStreamSubscription_1(
     Object parent,
     Invocation parentInvocation,
@@ -183,8 +182,7 @@ class MockStream<T> extends _i1.Mock implements _i2.Stream<T> {
       ) as _i2.Stream<S>);
 
   @override
-  _i2.Stream<E> asyncMap<E>(_i2.FutureOr<E> Function(T)? convert) =>
-      (super.noSuchMethod(
+  _i2.Stream<E> asyncMap<E>(_i2.FutureOr<E> Function(T)? convert) => (super.noSuchMethod(
         Invocation.method(
           #asyncMap,
           [convert],
@@ -193,8 +191,7 @@ class MockStream<T> extends _i1.Mock implements _i2.Stream<T> {
       ) as _i2.Stream<E>);
 
   @override
-  _i2.Stream<E> asyncExpand<E>(_i2.Stream<E>? Function(T)? convert) =>
-      (super.noSuchMethod(
+  _i2.Stream<E> asyncExpand<E>(_i2.Stream<E>? Function(T)? convert) => (super.noSuchMethod(
         Invocation.method(
           #asyncExpand,
           [convert],
@@ -217,8 +214,7 @@ class MockStream<T> extends _i1.Mock implements _i2.Stream<T> {
       ) as _i2.Stream<T>);
 
   @override
-  _i2.Stream<S> expand<S>(Iterable<S> Function(T)? convert) =>
-      (super.noSuchMethod(
+  _i2.Stream<S> expand<S>(Iterable<S> Function(T)? convert) => (super.noSuchMethod(
         Invocation.method(
           #expand,
           [convert],
@@ -227,8 +223,7 @@ class MockStream<T> extends _i1.Mock implements _i2.Stream<T> {
       ) as _i2.Stream<S>);
 
   @override
-  _i2.Future<dynamic> pipe(_i2.StreamConsumer<T>? streamConsumer) =>
-      (super.noSuchMethod(
+  _i2.Future<dynamic> pipe(_i2.StreamConsumer<T>? streamConsumer) => (super.noSuchMethod(
         Invocation.method(
           #pipe,
           [streamConsumer],
@@ -237,8 +232,7 @@ class MockStream<T> extends _i1.Mock implements _i2.Stream<T> {
       ) as _i2.Future<dynamic>);
 
   @override
-  _i2.Stream<S> transform<S>(_i2.StreamTransformer<T, S>? streamTransformer) =>
-      (super.noSuchMethod(
+  _i2.Stream<S> transform<S>(_i2.StreamTransformer<T, S>? streamTransformer) => (super.noSuchMethod(
         Invocation.method(
           #transform,
           [streamTransformer],
