@@ -29,4 +29,10 @@ flutter:
 
   # Handles localization tasks.
   # This field can appear as a subfield of flutter and material.
-  generate: false
+  #
+  # Target gen_localizations failed:
+  #   Error:
+  #     Attempted to generate localizations code without having the flutter: generate flag turned on.
+  # Check pubspec.yaml and ensure that flutter:
+  #   generate: true has been added and rebuild the project. Otherwise, the localizations source code will not be importable.
+  generate: true
