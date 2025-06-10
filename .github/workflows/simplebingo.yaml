@@ -20,9 +20,9 @@ jobs:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
     with:
       min_coverage: 80
-      flutter_version: 3.32.1
+      flutter_version: 3.32.2
       flutter_channel: stable
-      format_line_length: 100
+      format_line_length: 80
       coverage_excludes: "*.g.dart *.freezed.dart" # defaults to "" (none)
       working_directory: apps/simplebingo # defaults to "." (the top-level directory)
 
