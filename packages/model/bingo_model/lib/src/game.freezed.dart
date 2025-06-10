@@ -27,7 +27,8 @@ mixin _$Game implements DiagnosticableTreeMixin {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  $GameCopyWith<Game> get copyWith => _$GameCopyWithImpl<Game>(this as Game, _$identity);
+  $GameCopyWith<Game> get copyWith =>
+      _$GameCopyWithImpl<Game>(this as Game, _$identity);
 
   /// Serializes this Game to a JSON map.
   Map<String, dynamic> toJson();
@@ -51,7 +52,8 @@ mixin _$Game implements DiagnosticableTreeMixin {
         (other.runtimeType == runtimeType &&
             other is Game &&
             (identical(other.started, started) || other.started == started) &&
-            (identical(other.finished, finished) || other.finished == finished) &&
+            (identical(other.finished, finished) ||
+                other.finished == finished) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.found, found) || other.found == found) &&
@@ -61,8 +63,15 @@ mixin _$Game implements DiagnosticableTreeMixin {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, started, finished, width, height, found,
-      const DeepCollectionEquality().hash(selected), const DeepCollectionEquality().hash(elements));
+  int get hashCode => Object.hash(
+      runtimeType,
+      started,
+      finished,
+      width,
+      height,
+      found,
+      const DeepCollectionEquality().hash(selected),
+      const DeepCollectionEquality().hash(elements));
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -72,7 +81,8 @@ mixin _$Game implements DiagnosticableTreeMixin {
 
 /// @nodoc
 abstract mixin class $GameCopyWith<$Res> {
-  factory $GameCopyWith(Game value, $Res Function(Game) _then) = _$GameCopyWithImpl;
+  factory $GameCopyWith(Game value, $Res Function(Game) _then) =
+      _$GameCopyWithImpl;
   @useResult
   $Res call(
       {String? started,
@@ -187,7 +197,8 @@ class _Game with DiagnosticableTreeMixin implements Game {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$GameCopyWith<_Game> get copyWith => __$GameCopyWithImpl<_Game>(this, _$identity);
+  _$GameCopyWith<_Game> get copyWith =>
+      __$GameCopyWithImpl<_Game>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -215,7 +226,8 @@ class _Game with DiagnosticableTreeMixin implements Game {
         (other.runtimeType == runtimeType &&
             other is _Game &&
             (identical(other.started, started) || other.started == started) &&
-            (identical(other.finished, finished) || other.finished == finished) &&
+            (identical(other.finished, finished) ||
+                other.finished == finished) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.found, found) || other.found == found) &&
@@ -243,7 +255,8 @@ class _Game with DiagnosticableTreeMixin implements Game {
 
 /// @nodoc
 abstract mixin class _$GameCopyWith<$Res> implements $GameCopyWith<$Res> {
-  factory _$GameCopyWith(_Game value, $Res Function(_Game) _then) = __$GameCopyWithImpl;
+  factory _$GameCopyWith(_Game value, $Res Function(_Game) _then) =
+      __$GameCopyWithImpl;
   @override
   @useResult
   $Res call(
