@@ -5,8 +5,8 @@ Random _rnd = Random();
 
 // Create a random string of length [length]
 String createRandomString(int length) => String.fromCharCodes(
-      Iterable.generate(
-        length,
-        (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length)),
-      ),
-    );
+  Iterable.generate(
+    length,
+    (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length)),
+  ),
+);

@@ -64,13 +64,15 @@ import 'test_helpers_localizations_en.dart';
 /// property.
 abstract class TestHelpersLocalizations {
   TestHelpersLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
   static TestHelpersLocalizations of(BuildContext context) {
     return Localizations.of<TestHelpersLocalizations>(
-        context, TestHelpersLocalizations)!;
+      context,
+      TestHelpersLocalizations,
+    )!;
   }
 
   static const LocalizationsDelegate<TestHelpersLocalizations> delegate =
@@ -88,16 +90,16 @@ abstract class TestHelpersLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('de'),
-    Locale('en')
+    Locale('en'),
   ];
 }
 
@@ -108,7 +110,8 @@ class _TestHelpersLocalizationsDelegate
   @override
   Future<TestHelpersLocalizations> load(Locale locale) {
     return SynchronousFuture<TestHelpersLocalizations>(
-        lookupTestHelpersLocalizations(locale));
+      lookupTestHelpersLocalizations(locale),
+    );
   }
 
   @override
@@ -129,8 +132,9 @@ TestHelpersLocalizations lookupTestHelpersLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-      'TestHelpersLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+    'TestHelpersLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
 }

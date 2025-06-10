@@ -14,10 +14,8 @@ abstract class GameState with _$GameState {
   const factory GameState({
     /// Time when game is started
     DateTime? started, // nullable, set when game is started
-
     /// Time when game is finished
     DateTime? finished, // nullable, set when game is finished
-
     /// size of the board
     @Default(5) int size,
 
@@ -39,12 +37,15 @@ extension GameStateExtension on GameState {
   int get found => selected.length;
 
   /// get list of cells
-  List<Cell> get cells => elements
-      .map(
-        (element) =>
-            (label: element, selected: _isSelected(_findElementId(element))),
-      )
-      .toList();
+  List<Cell> get cells =>
+      elements
+          .map(
+            (element) => (
+              label: element,
+              selected: _isSelected(_findElementId(element)),
+            ),
+          )
+          .toList();
 
   /// shared method for finding element ID
   int _findElementId(String element) => elements.indexOf(element);
@@ -58,8 +59,10 @@ extension GameStateExtension on GameState {
 
   /// check if all elements in row are selected
   bool _checkRow(int row) {
-    return List.generate(size, (int col) => row * size + col)
-        .every(_isSelected);
+    return List.generate(
+      size,
+      (int col) => row * size + col,
+    ).every(_isSelected);
   }
 
   /// amount of columns which are fully selected
@@ -68,8 +71,10 @@ extension GameStateExtension on GameState {
 
   /// check if all elements in column are selected
   bool _checkColumn(int col) {
-    return List.generate(size, (int row) => row * size + col)
-        .every(_isSelected);
+    return List.generate(
+      size,
+      (int row) => row * size + col,
+    ).every(_isSelected);
   }
 
   /// amount of axes which are fully selected
@@ -78,8 +83,10 @@ extension GameStateExtension on GameState {
 
   /// check up-down axis (right-left)
   bool _checkDownAxis() {
-    return List.generate(size, (int pos) => pos * size + pos)
-        .every(_isSelected);
+    return List.generate(
+      size,
+      (int pos) => pos * size + pos,
+    ).every(_isSelected);
   }
 
   /// check down-up axis (right-left)

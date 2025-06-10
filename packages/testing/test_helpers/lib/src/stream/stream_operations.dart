@@ -37,9 +37,11 @@ Stream<T> createMockedStream<T>(Iterable<T> objectsToYield) {
       cancelOnError: anyNamed('cancelOnError'),
     ),
   ).thenAnswer((inv) {
-    final onData = inv.positionalArguments.single as void Function(
-      T,
-    )?;
+    final onData =
+        inv.positionalArguments.single
+            as void Function(
+              T,
+            )?;
     final onError = inv.namedArguments[#onError] as Function?;
     void onDone() => inv.namedArguments[#onDone] as void Function()?;
     final cancelOnError = inv.namedArguments[#cancelOnError] as bool?;

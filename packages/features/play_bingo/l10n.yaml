@@ -4,5 +4,5 @@ output-localization-file: play_bingo_localizations.dart
 output-class: PlayBingoLocalizations
 synthetic-package: false
 nullable-getter: false
-format: true
+format: false
 header: // coverage:ignore-file

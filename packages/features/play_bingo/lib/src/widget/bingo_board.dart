@@ -27,16 +27,17 @@ class BingoBoard extends StatelessWidget {
         // The GridView is a widget that displays a grid of children.
         return GridView.count(
           crossAxisCount: state.size, // number of cells in a row
-          children: state.cells
-              .map(
-                (cell) => BingoBoardCell(
-                  label: cell.label,
-                  isSelected: cell.selected,
-                  onSelect: (label) => bloc.add(Selected(label)),
-                  onUnselect: (label) => bloc.add(Unselected(label)),
-                ),
-              )
-              .toList(),
+          children:
+              state.cells
+                  .map(
+                    (cell) => BingoBoardCell(
+                      label: cell.label,
+                      isSelected: cell.selected,
+                      onSelect: (label) => bloc.add(Selected(label)),
+                      onUnselect: (label) => bloc.add(Unselected(label)),
+                    ),
+                  )
+                  .toList(),
         );
       },
     );

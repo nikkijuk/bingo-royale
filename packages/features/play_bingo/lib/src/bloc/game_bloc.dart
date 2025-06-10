@@ -11,7 +11,7 @@ import 'package:play_bingo/src/bloc/game_state.dart';
 /// Game can be started and finished.
 class GameBloc extends Bloc<GameEvent, GameState> {
   GameBloc({required List<String> labels, int size = 5})
-      : super(GameState(elements: labels, size: size)) {
+    : super(GameState(elements: labels, size: size)) {
     on<Started>(_onStarted);
     on<Finished>(_onFinished);
     on<Selected>(_onSelected);
