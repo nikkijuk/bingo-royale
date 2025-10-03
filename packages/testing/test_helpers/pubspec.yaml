@@ -4,8 +4,8 @@ version: 0.1.0+1
 publish_to: none
 
 environment:
-  sdk: ^3.7.0
-  flutter: ^3.0.0
+  sdk: ^3.9.0
+  flutter: ^3.35.0
 
 dependencies:
   # Note: component_library can't use this test package since it would result cycle
@@ -25,7 +25,7 @@ dev_dependencies:
   bloc: ^9.0.0
   build_runner: ^2.4.9
   test: any
-  very_good_analysis: ^9.0.0
+  very_good_analysis: ^10.0.0
 
 flutter:
   uses-material-design: true

@@ -1,7 +1,7 @@
 name: play_with_dash_workspace
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.9.0
 
 # when needed update very good cli using
 # dart pub global activate very_good_cli <version>
@@ -10,7 +10,7 @@ environment:
 # dart pub global activate melos <version>
 
 dependencies:
-  very_good_analysis: ^9.0.0
+  very_good_analysis: ^10.0.0
 
 dev_dependencies:
   melos: ^6.3.3

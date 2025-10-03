@@ -37,15 +37,14 @@ extension GameStateExtension on GameState {
   int get found => selected.length;
 
   /// get list of cells
-  List<Cell> get cells =>
-      elements
-          .map(
-            (element) => (
-              label: element,
-              selected: _isSelected(_findElementId(element)),
-            ),
-          )
-          .toList();
+  List<Cell> get cells => elements
+      .map(
+        (element) => (
+          label: element,
+          selected: _isSelected(_findElementId(element)),
+        ),
+      )
+      .toList();
 
   /// shared method for finding element ID
   int _findElementId(String element) => elements.indexOf(element);

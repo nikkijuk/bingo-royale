@@ -24,7 +24,7 @@ jobs:
       flutter_version: 3.32.2
       flutter_channel: stable
       format_line_length: 80
-      format_directories: "test" # defaults to "lib test"
+      format_directories: "none" # defaults to "lib test"
       coverage_excludes: "*.g.dart *.freezed.dart" # defaults to "" (none)
       working_directory: apps/simplebingo # defaults to "." (the top-level directory)
 

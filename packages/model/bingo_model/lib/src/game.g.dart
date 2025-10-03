@@ -12,12 +12,12 @@ _Game _$GameFromJson(Map<String, dynamic> json) => _Game(
   width: (json['width'] as num?)?.toInt(),
   height: (json['height'] as num?)?.toInt(),
   found: (json['found'] as num?)?.toInt(),
-  selected:
-      (json['selected'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
-  elements:
-      (json['elements'] as List<dynamic>?)?.map((e) => e as String).toList(),
+  selected: (json['selected'] as List<dynamic>?)
+      ?.map((e) => (e as num).toInt())
+      .toList(),
+  elements: (json['elements'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
 );
 
 Map<String, dynamic> _$GameToJson(_Game instance) => <String, dynamic>{

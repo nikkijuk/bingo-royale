@@ -88,7 +88,7 @@ See that you have `pubspec.yaml` file with following content:
 
 ```yaml
 environment:
-  sdk: "^3.2.0"
+  sdk: "^3.9.0"
 ```
 
 If supported dart version is lower than installed with flutter,
@@ -235,7 +235,6 @@ arb-dir: lib/l10n
 template-arb-file: app_en.arb
 output-localization-file: app_localizations.dart
 output-class: AppLocalizations
-synthetic-package: false
 nullable-getter: false
 format: true
 header: // coverage:ignore-file

@@ -79,7 +79,7 @@ If needed downgrade it to the one that matches flutter sdk used.
 
 ```yaml
 environment:
-  sdk: "^3.2.0"
+  sdk: "^3.9.0"
 ```
 
 ## Add implementation
@@ -143,7 +143,6 @@ arb-dir: lib/src/l10n/arb
 template-arb-file: messages_en.arb
 output-localization-file: <package_dir>_localizations.dart
 output-class: <PackageName>Localizations
-synthetic-package: false
 nullable-getter: false
 format: true
 header: // coverage:ignore-file

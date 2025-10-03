@@ -41,12 +41,11 @@ void main() {
       blocTest<GameBloc, GameState>(
         'emits [GameState] when [Unselected] happens',
         build: () => GameBloc(labels: elements),
-        act:
-            (bloc) => {
-              bloc.add(const Selected('a')),
-              bloc.add(const Selected('b')),
-              bloc.add(const Unselected('a')),
-            },
+        act: (bloc) => {
+          bloc.add(const Selected('a')),
+          bloc.add(const Selected('b')),
+          bloc.add(const Unselected('a')),
+        },
         expect: () => [isA<GameState>(), isA<GameState>(), isA<GameState>()],
         verify: (bloc) => bloc.state.found == 1,
       );

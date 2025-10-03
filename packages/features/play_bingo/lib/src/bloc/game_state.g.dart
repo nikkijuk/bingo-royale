@@ -7,14 +7,12 @@ part of 'game_state.dart';
 // **************************************************************************
 
 _GameState _$GameStateFromJson(Map<String, dynamic> json) => _GameState(
-  started:
-      json['started'] == null
-          ? null
-          : DateTime.parse(json['started'] as String),
-  finished:
-      json['finished'] == null
-          ? null
-          : DateTime.parse(json['finished'] as String),
+  started: json['started'] == null
+      ? null
+      : DateTime.parse(json['started'] as String),
+  finished: json['finished'] == null
+      ? null
+      : DateTime.parse(json['finished'] as String),
   size: (json['size'] as num?)?.toInt() ?? 5,
   selected:
       (json['selected'] as List<dynamic>?)
