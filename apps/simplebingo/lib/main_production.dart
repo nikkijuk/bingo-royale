@@ -1,6 +1,8 @@
+import 'dart:async';
+
 import 'package:simplebingo/app/app.dart';
 import 'package:simplebingo/bootstrap.dart';
 
 void main() {
-  bootstrap(() => const App());
+  unawaited(bootstrap(() => const App()));
 }

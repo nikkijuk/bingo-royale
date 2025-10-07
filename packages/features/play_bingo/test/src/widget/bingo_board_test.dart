@@ -6,11 +6,11 @@ import 'package:play_bingo/src/l10n/play_bingo_localizations.dart';
 import 'package:play_bingo/src/widget/bingo_board.dart';
 import 'package:test_helpers/test_helpers.dart';
 
-const infoHeader = 'Success';
-const infoDetail = 'Sending was Success';
+//const infoHeader = 'Success';
+//const infoDetail = 'Sending was Success';
 const mailSuccessPath = 'assets/icons/sendReport/mail_success.png';
 
-void noOperation() => {};
+//void noOperation() => {};
 
 void main() {
   testWidgets(
